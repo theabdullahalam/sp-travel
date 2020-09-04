@@ -1,0 +1,16 @@
+@import 'colors';
+@import 'cleanup';
+@import 'navmenu';
+
+body{
+    background: $background_color;
+    color: $font_color;
+}
+
+#main{
+    #large-header{
+        img{
+            height: 10rem;
+        }
+    }
+}

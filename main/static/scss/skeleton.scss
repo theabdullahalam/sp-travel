@@ -1,0 +1,226 @@
+@import 'colors';
+@import 'cleanup';
+@import 'navmenu';
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+
+
+
+$side_margin: 10vw;
+$top_margin: 5rem;
+
+$side_margin_mobile: 2rem;
+$top_margin_mobile: $side_margin_mobile;
+
+
+
+body{
+    background: $background_color;
+    color: $font_color;
+    font-family: 'Josefin Sans', sans-serif;
+
+
+
+
+
+
+
+    #large-header{
+
+        background: 
+            linear-gradient(rgba(7, 40, 66, 0.5), rgba(7, 40, 66, 0.5)),
+            url(/static/img/mountains.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+
+        width: 100vw;
+        height: 100vh;
+
+        padding-left: $side_margin;
+        padding-top: $top_margin;
+        padding-right: $side_margin;
+        box-sizing: border-box;
+
+        @media screen and (max-width: 700px), screen and (max-height: 650px) {
+            padding-left: $side_margin_mobile;
+            padding-right: $side_margin_mobile;
+            padding-top: $top_margin_mobile;
+        }
+
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        grid-template-rows: 5fr auto auto 6fr;
+
+
+
+
+
+        #site-logo-block{
+
+            $heights: 4.5rem;
+            $heights_mobile: 2.5rem;
+            $mobile_split_width: 60rem;
+
+            display: flex;
+            max-height: $heights;
+            @media screen and (max-width: $mobile_split_width) {
+                max-height: $heights_mobile;
+            }
+            align-items: flex-end;
+
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+
+            h2{
+                color: white;
+                display: inline;
+                margin: 0;
+                padding: 0;
+                font-size: 2.6rem;
+                line-height: 1em;
+                margin-bottom: -15px;
+                font-weight: 400;
+
+                @media screen and (max-width: $mobile_split_width) {
+                    font-size: 1.5rem;
+                    margin-bottom: -8px;
+                }
+            }
+            img{
+                height: $heights;
+                @media screen and (max-width: $mobile_split_width) {
+                    height: $heights_mobile;
+                }
+                display: block;
+                margin-left: 2rem;
+            }
+        }
+
+
+
+
+
+
+
+
+        #menu-block{
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+            place-self: start end;
+            
+            margin-right: 5vw;
+
+            @media screen and (max-width: 1200px) {
+                margin-right: 0;
+            }
+
+            @media screen and (max-width: 500px) {
+                margin-top: 8px;
+            }
+
+            #navmenu{
+                ul{
+                    padding-left: 0;
+                    li{
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+
+
+
+        #pre-title-block{
+
+            @media screen and (max-height: 650px) {
+                margin-top: 3rem;
+            }
+
+            grid-row: 2 / 3;
+            grid-column: 1 / 2;
+            h3{
+                font-weight: 400;
+                font-size: 1.4rem;
+            }
+        }
+
+
+
+
+        #title-block{
+            
+            max-width: 60vw;
+            margin-top: 2rem;
+            @media screen and (max-height: 650px) {
+                margin-top: 1rem;
+            }
+
+            grid-row: 3 / 4;
+            grid-column: 1 / 3;
+            
+
+            h1{
+                font-size: 5rem;
+                font-weight: bold;
+                line-height: 1.2em;
+
+                @media screen and (max-width: 1400px) {
+                    font-size: 3rem;
+                }
+            }
+        }
+
+
+
+
+        #under-title{
+            grid-row: 4 / 5;
+            grid-column: 1 / 3;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            align-content: flex-start;
+
+            @media screen and (max-width: 600px) {
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+                grid-template-rows: auto auto;
+
+                a{
+                    margin-bottom: 1rem;
+                }
+            }
+
+
+            margin-top: 2rem;
+            @media screen and (max-height: 650px) {
+                margin-top: 1rem;
+            }
+
+            a{
+                text-decoration: none;
+                color: $accent_color;
+                margin-right: 3rem;
+            }
+        }
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+}
+
+
