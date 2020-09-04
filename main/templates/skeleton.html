@@ -68,7 +68,7 @@
 
 
             <!-- THE LARGE HEADER UP TOP -->
-            <div id="large-header">
+            <header id="large-header">
 
                 <!-- SITE TITLE AND LOGO SECTION -->
                 <div id="site-logo-block">
@@ -137,9 +137,53 @@
 
 
                 
-            </div>
+            </header>
+            <!-- END OF LARGE HEADER -->
 
             {% block body %}{% endblock %}
+
+            <!-- FOOTER -->
+            <footer id="footer">
+
+
+                <div id="block1">
+                    <div id="site-logo-block">
+                        <h2>
+                            SENTIENT <br>
+                            PIXELS
+                        </h2>
+                        <img src="{% static 'img/sp-logo.svg' %}" />
+                    </div>
+                    <div id="nav-links">
+                        <ul>
+                            <li>
+                                <a href="#">PLACES</a>
+                            </li>
+                            <li>
+                                <a href="#">POSTS</a>
+                            </li>
+                            <li>
+                                <a href="#">ABOUT</a>
+                            </li>
+                            <li>
+                                <a href="#">HOME</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div id="block2">
+                    <div id="info-block">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae temporibus quibusdam dolorem natus enim sunt exercitationem et alias? Veniam commodi error, omnis aspernatur odit maxime laudantium tempora inventore atque officiis reprehenderit! Aperiam omnis fugit facere ut quaerat dolores veniam harum!
+                    </div>
+                    <div id="home-link-block">
+                        <a href="https://sentient-pixels.com">SENTIENT-PIXELS HOME</a>
+                    </div>
+                </div>
+                
+
+            </footer>
         </div>
     </body>
 </html>
