@@ -43,7 +43,7 @@ body{
         padding-right: $side_margin;
         box-sizing: border-box;
 
-        @media screen and (max-width: 700px), screen and (max-height: 650px) {
+        @media screen and (max-width: 700px), screen and (max-height: 600px) {
             padding-left: $side_margin_mobile;
             padding-right: $side_margin_mobile;
             padding-top: $top_margin_mobile;
@@ -134,7 +134,7 @@ body{
 
         #pre-title-block{
 
-            @media screen and (max-height: 650px) {
+            @media screen and (max-height: 600px) {
                 margin-top: 3rem;
             }
 
@@ -153,7 +153,7 @@ body{
             
             max-width: 60vw;
             margin-top: 2rem;
-            @media screen and (max-height: 650px) {
+            @media screen and (max-height: 600px) {
                 margin-top: 1rem;
             }
 
@@ -197,7 +197,7 @@ body{
 
 
             margin-top: 2rem;
-            @media screen and (max-height: 650px) {
+            @media screen and (max-height: 600px) {
                 margin-top: 1rem;
             }
 
@@ -229,7 +229,7 @@ body{
         box-sizing: border-box;
         display: flex;
 
-        @media screen and (max-width: 700px), screen and (max-height: 650px) {
+        @media screen and (max-width: 700px), screen and (max-height: 600px) {
 
             padding-left: $side_margin_mobile;
             padding-right: $side_margin_mobile;
@@ -283,7 +283,7 @@ body{
 
             #nav-links{
                 margin-top: 4rem;
-                @media screen and (max-width: 700px), screen and (max-height: 650px) {
+                @media screen and (max-width: 700px), screen and (max-height: 600px) {
                     margin-top: 2rem;
                 }
                 ul{
@@ -291,7 +291,7 @@ body{
                     padding-left: 0;
                     li{
                         margin-bottom: 1rem;
-                        @media screen and (max-width: 700px), screen and (max-height: 650px) {
+                        @media screen and (max-width: 700px), screen and (max-height: 600px) {
                             margin-bottom: 1rem;
                         }
                         a{
@@ -312,7 +312,7 @@ body{
         #block2{
             max-width: 30rem;
             margin-left: 20rem;
-            @media screen and (max-width: 700px), screen and (max-height: 650px) {
+            @media screen and (max-width: 700px), screen and (max-height: 600px) {
                 margin-left: 0;
                 margin-top: 2rem;
             }
@@ -320,7 +320,7 @@ body{
 
             #home-link-block{
                 margin-top: 1rem;
-                @media screen and (max-width: 700px), screen and (max-height: 650px) {
+                @media screen and (max-width: 700px), screen and (max-height: 600px) {
                     margin-top: 2rem;
                 }
                 a{
