@@ -23,7 +23,7 @@ $top_margin_mobile: $side_margin_mobile;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 900px) {
             flex-wrap: wrap;
         }
 
@@ -35,12 +35,15 @@ $top_margin_mobile: $side_margin_mobile;
 
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            min-height: 42rem;
 
             margin-right: 2.5rem;
-            @media screen and (max-width: 700px) {
+            @media screen and (max-width: 900px) {
                 margin-right: 0;
                 margin-bottom: 2rem;
                 flex: unset;
+                min-height: unset;
             }                
 
             img{
@@ -56,7 +59,7 @@ $top_margin_mobile: $side_margin_mobile;
                     height: 10rem;
                 }
 
-                @media screen and (max-width: 700px) {
+                @media screen and (max-width: 900px) {
                     height: 20rem;
                 }
 
@@ -74,13 +77,40 @@ $top_margin_mobile: $side_margin_mobile;
             }
 
 
-            a {
+            .place-link {
                 text-decoration: none;
-                color: $accent_color_darker;
+                color: $accent_color;
             }
 
             .post-info-item{
-                margin-bottom: 0.5rem;
+                margin-bottom: 0rem;
+            }
+
+            .read-post-link{
+
+                $vertical_padding: 8px;
+
+
+                text-align: center;
+                width: 100%;
+                text-decoration: none;
+                display: inline-block;
+                border: 2px solid $accent_color;
+                padding-top: $vertical_padding + 4px;
+                padding-bottom: $vertical_padding;
+                font-weight: bold;
+                font-size: 1.2rem;
+                @media screen and (max-width: 900px) {
+                    margin-top: 2rem;
+                }
+
+                transition: background 0.2s, color 0.2s;
+
+            }
+
+            .read-post-link:hover{
+                background: $accent_color;
+                color: $background_color;
             }
 
         }
