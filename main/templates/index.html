@@ -22,33 +22,33 @@
 {% endblock %}
 
 {% block body %}
-                <div id="stuff">
+                
                     
-                    {% for section in sections %}
-                        <div class="posts-section">
+                {% for section in sections %}
+                    <div class="posts-section">
 
-                            <h2>{{section.name}}</h3>
+                        <h2>{{section.name}}</h3>
 
-                            <div class="posts-list">
-                                {% for post in section.posts %}
-                                    <div class="post">
+                        <div class="posts-list">
+                            {% for post in section.posts %}
+                                <div class="post">
 
-                                        <img class="lozad" data-src="{{ post.header_image }}"/>
-                                        <h3>{{ post.title }}</h3>
-                                        <p>
-                                            {{ post.preview | safe }}
-                                        </p>
-                                        
-                                        <a href="#" class="post-info-item">Uttarakhand</a>
-                                        <span class="post-info-item">24th August, 2020</span>
-                                        <span class="post-info-item"><i class="fas fa-eye"></i> 27</span>
-                                        
-                                    </div>
-                                {% endfor %}
+                                    <img class="lozad" data-src="{{ post.header_image }}"/>
+                                    <h3>{{ post.title }}</h3>
+                                    <p>
+                                        {{ post.preview | safe }}
+                                    </p>
+                                    
+                                    <a href="#" class="post-info-item">Uttarakhand</a>
+                                    <span class="post-info-item">24th August, 2020</span>
+                                    <span class="post-info-item"><i class="fas fa-eye"></i> 27</span>
+                                    
+                                </div>
+                            {% endfor %}
 
-                            </div>
                         </div>
-                    {% endfor %}
+                    </div>
+                {% endfor %}
 
-                </div>
+                
 {% endblock %}

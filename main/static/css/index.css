@@ -1,84 +1,70 @@
-#stuff {
-  padding-left: 10vw;
-  padding-top: 5rem;
-  padding-right: 10vw;
-  box-sizing: border-box;
-  background: #f9f9f9;
-}
-@media screen and (max-width: 700px), screen and (max-height: 600px) {
-  #stuff {
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: 2rem;
-  }
-}
-#stuff .posts-section {
+.posts-section {
   width: 100%;
   margin-bottom: 8rem;
 }
-#stuff .posts-section h2 {
+.posts-section h2 {
   font-size: 1.5rem;
   font-weight: 400;
 }
-#stuff .posts-section .posts-list {
+.posts-section .posts-list {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-top: 2rem;
 }
 @media screen and (max-width: 700px) {
-  #stuff .posts-section .posts-list {
+  .posts-section .posts-list {
     flex-wrap: wrap;
   }
 }
-#stuff .posts-section .posts-list .post {
+.posts-section .posts-list .post {
   flex: 1 1;
   display: flex;
   flex-direction: column;
   margin-right: 2.5rem;
 }
 @media screen and (max-width: 700px) {
-  #stuff .posts-section .posts-list .post {
+  .posts-section .posts-list .post {
     margin-right: 0;
     margin-bottom: 2rem;
     flex: unset;
   }
 }
-#stuff .posts-section .posts-list .post img {
+.posts-section .posts-list .post img {
   max-width: 100%;
   height: 20rem;
   object-fit: cover;
 }
 @media screen and (max-width: 1600px) {
-  #stuff .posts-section .posts-list .post img {
+  .posts-section .posts-list .post img {
     height: 15rem;
   }
 }
 @media screen and (max-width: 1200px) {
-  #stuff .posts-section .posts-list .post img {
+  .posts-section .posts-list .post img {
     height: 10rem;
   }
 }
 @media screen and (max-width: 700px) {
-  #stuff .posts-section .posts-list .post img {
+  .posts-section .posts-list .post img {
     height: 20rem;
   }
 }
-#stuff .posts-section .posts-list .post h3 {
+.posts-section .posts-list .post h3 {
   font-size: 2.5rem;
   margin-top: 1rem;
   margin-left: -3px;
 }
 @media screen and (max-width: 1200px) {
-  #stuff .posts-section .posts-list .post h3 {
+  .posts-section .posts-list .post h3 {
     font-size: 2rem;
   }
 }
-#stuff .posts-section .posts-list .post a {
+.posts-section .posts-list .post a {
   text-decoration: none;
   color: #EBBA34;
 }
-#stuff .posts-section .posts-list .post .post-info-item {
+.posts-section .posts-list .post .post-info-item {
   margin-bottom: 0.5rem;
 }
 
