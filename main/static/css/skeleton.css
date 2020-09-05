@@ -125,6 +125,11 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
   }
 }
+html {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: #f9f9f9;
   color: #334061;
@@ -280,6 +285,7 @@ body #large-header #under-title a {
 body #footer {
   background: #355360;
   color: white;
+  width: 100vw;
   padding-left: 10vw;
   padding-top: 2rem;
   padding-right: 10vw;
@@ -370,7 +376,7 @@ body #footer #block2 {
   }
 }
 body #footer #block2 #home-link-block {
-  margin-top: 1rem;
+  margin-top: 2em;
 }
 @media screen and (max-width: 700px), screen and (max-height: 600px) {
   body #footer #block2 #home-link-block {

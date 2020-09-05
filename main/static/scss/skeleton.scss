@@ -13,6 +13,12 @@ $side_margin_mobile: 2rem;
 $top_margin_mobile: $side_margin_mobile;
 
 
+html {
+    margin: 0;
+    padding: 0;
+}
+
+
 
 body{
     background: $background_color;
@@ -221,6 +227,7 @@ body{
     #footer{
         background: $blue_background;
         color: white;
+        width: 100vw;
 
         padding-left: $side_margin;
         padding-top: $top_margin_mobile;
@@ -319,7 +326,7 @@ body{
 
 
             #home-link-block{
-                margin-top: 1rem;
+                margin-top: 2em;
                 @media screen and (max-width: 700px), screen and (max-height: 600px) {
                     margin-top: 2rem;
                 }
