@@ -125,18 +125,12 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
   }
 }
-html {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   background: #f9f9f9;
   color: #334061;
   font-family: "Josefin Sans", sans-serif;
 }
 body #large-header {
-  background: linear-gradient(rgba(7, 40, 66, 0.5), rgba(7, 40, 66, 0.5)), url(/static/img/mountains.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -5,63 +5,52 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{% block title %}{% endblock %}</title>
-        <meta
-            name="description"
-            content="{% block metadescription %}{% endblock %}"
-        />
+        <meta name="description" content="{% block metadescription %}{% endblock %}"/>
         <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
-        <script
-            src="https://kit.fontawesome.com/d8749e6d0b.js"
-            crossorigin="anonymous"
-        ></script>
+        <script src="https://kit.fontawesome.com/d8749e6d0b.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
 
+
+
+        <!-- OPENGRAPH TAGS -->
         {% comment %} OPENGRAPH META TAGS {% endcomment %}
         <meta property="og:title" content="{% block ogtitle %}{% endblock %}" />
-        <meta
-            property="og:description"
-            content="{% block ogdescription %}{% endblock %}"
-        />
+        <meta property="og:description" content="{% block ogdescription %}{% endblock %}"/>
         <meta property="og:url" content="{% block ogurl %}{% endblock %}" />
         <meta property="og:image" content="{% block ogimage %}{% endblock %}" />
         <meta property="og:type" content="{% block ogtype %}{% endblock %}" />
 
-        {% comment %}
+
+
+        
         <!-- TWITTER LARGE CARD META TAGS -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content="@_abdullahalam_" />
-        <meta
-            name="twitter:title"
-            content="{% block tctitle %}{% endblock %}"
-        />
-        <meta
-            name="twitter:description"
-            content="{% block tcdescription %}{% endblock %}"
-        />
-        <meta
-            name="twitter:image"
-            content="{% block tcimage %}{% endblock %}"
-        />
-        {% endcomment %}
+        <meta name="twitter:title" content="{% block tctitle %}{% endblock %}"/>
+        <meta name="twitter:description" content="{% block tcdescription %}{% endblock %}"/>
+        <meta name="twitter:image" content="{% block tcimage %}{% endblock %}"/>
 
-        <!-- TWITTER CARD META TAGS -->
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:creator" content="@_abdullahalam_" />
-        <meta
-            name="twitter:title"
-            content="{% block tctitle %}{% endblock %}"
-        />
-        <meta
-            name="twitter:description"
-            content="{% block tcdescription %}{% endblock %}"
-        />
-        <meta
-            name="twitter:image"
-            content="{% block tcimage %}{% endblock %}"
-        />
+
+
+
+
+
 
         <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
 
         {% block head %}{% endblock %}
+
+
+        <!-- DYNAMIC STYLES -->
+        <style>
+            #large-header{
+                background: 
+                    linear-gradient(rgba(7, 40, 66, 0.5), rgba(7, 40, 66, 0.5)),
+                    url({{ header_image }});
+                }
+        </style>
+
+
     </head>
     <body>
         <div id="main">
@@ -140,7 +129,11 @@
             </header>
             <!-- END OF LARGE HEADER -->
 
-            {% block body %}{% endblock %}
+            <!-- BEGIN CONTENT BLOCK -->
+            <div id="content">
+                {% block body %}{% endblock %}
+            </div>
+            <!-- END CONTENT BLOCK -->
 
             <!-- FOOTER -->
             <footer id="footer">
@@ -185,5 +178,10 @@
 
             </footer>
         </div>
+
+
+
+        <!-- LAZY LOAD  -->
+        <script type="text/javascript" src="{% static 'js/observe_lozad.js' %}"></script>
     </body>
 </html>

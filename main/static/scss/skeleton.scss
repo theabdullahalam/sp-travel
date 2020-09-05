@@ -13,12 +13,6 @@ $side_margin_mobile: 2rem;
 $top_margin_mobile: $side_margin_mobile;
 
 
-html {
-    margin: 0;
-    padding: 0;
-}
-
-
 
 body{
     background: $background_color;
@@ -27,15 +21,13 @@ body{
 
 
 
+    
 
 
 
 
     #large-header{
 
-        background: 
-            linear-gradient(rgba(7, 40, 66, 0.5), rgba(7, 40, 66, 0.5)),
-            url(/static/img/mountains.jpg);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

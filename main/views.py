@@ -1,9 +1,49 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import Post, PostType
+from django.templatetags.static import static
  
 def index(request):
-    return render(request, 'index.html')
+    header_image = static('img/mountains.jpg')
+    posts = [
+        {
+            'header_image': static('/img/ladakh.jpg'),
+            'title': 'Dont miss this cool Image!',
+            'preview': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?'
+        },
+        {
+            'header_image': static('/img/cats.jpg'),
+            'title': 'Dont miss this cool Image!',
+            'preview': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam? Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia!'
+        },
+        {
+            'header_image': static('/img/monkey.jpg'),
+            'title': 'Dont miss this cool Image!',
+            'preview': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?'
+        }
+    ]
+
+
+    sections = [
+        {
+            'name': 'Latest Posts',
+            'posts': posts
+        },
+
+        {
+            'name': 'Guides',
+            'posts': posts
+        }
+    ]
+
+
+    context = {
+        'header_image': header_image,
+        'sections': sections
+    }
+
+
+    return render(request, 'index.html', context=context)
  
 def post(request, slug):
     # FETCH OBJ
