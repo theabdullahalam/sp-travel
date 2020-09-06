@@ -21,6 +21,16 @@
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock %}
 
+{% block pre-title %}Welcome to SP-Travel{% endblock %}
+{% block big-title %}A Travel, Photography and Trekking Blog{% endblock %}
+{% block under-title %}
+                <a href="#">BLOG</a>
+                <a href="#">PHOTOGRAPHY</a>
+                <a href="#">PLACES</a>
+                <a href="#">GUIDES</a>
+{% endblock %}
+
+
 {% block body %}
                 
                     
@@ -43,7 +53,7 @@
                                     <span class="post-info-item">24th August, 2020</span>
                                     <span class="post-info-item"><i class="fas fa-eye"></i> 27</span>
 
-                                    <a href="#" class="read-post-link">READ</a>
+                                    <a href="{% url 'post' post.slug %}" class="read-post-link">READ</a>
                                     
                                 </div>
                             {% endfor %}

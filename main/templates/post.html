@@ -1,14 +1,68 @@
 {% extends 'skeleton.html' %}
+
 {% load static %}
-{% block title %}{{ post.title }}{% endblock %}
+
+{% block title %}{{ post.title}} - Sentient Pixels{% endblock %}
+{% block ogtitle %}{{ post.title}} - Sentient Pixels{% endblock %}
+{% block tctitle %}{{ post.title}} - Sentient Pixels{% endblock %}
+
+{% block metadescription %}
+    {{ post.preview }}
+{% endblock %}
+{% block ogdescription %}
+    {{ post.preview }}
+{% endblock %}
+{% block tcdescription %}
+    {{ post.preview }}
+{% endblock %}
+
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/post.css' %}">
 {% endblock %}
 
+
+
+{% block pre-title %}SP-Travel{% endblock %}
+{% block big-title %}Somewhere in Himachal Pradesh{% endblock %}
+{% block under-title %}
+                    <a href="#">Uttarakhand</a>
+                    <span>12th July</span>
+                    <a href="#">Blog</a>
+                    <span class="post-info-item"><i class="fas fa-eye"></i> 27</span>
+{% endblock %}
+
+
+
+
 {% block body %}
-<div id="content">
-    <h1>{{ post.title }}</h1>
-    {{ post.content | safe }}
-</div>
+
+
+                <div id="post-info">
+                    <h4 id="post-author">Abdullah</h4>
+                    <h4 id="post-date">12th July, 2020</h4>                    
+                </div>
+
+                <div id="post-body">
+                    {{ post.content | safe }}
+                </div>
+
+                <div id="related-posts">
+
+                </div>
+
+                <div id="comment-section">
+                    <div id="leave-a-comment">
+
+                    </div>
+                    <div id="comments">
+                        {% for comment in post.comments %}
+                            <div class="comment-block">
+
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+
 {% endblock %}

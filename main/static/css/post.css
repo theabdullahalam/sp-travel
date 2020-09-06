@@ -1,35 +1,40 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto", sans-serif;
-}
-body h1 {
-  opacity: 80%;
-  font-size: 4em;
-}
-body p {
-  opacity: 70%;
-  font-size: 1.1em;
-  line-height: 1.5em;
-}
-
-a {
-  text-decoration: none;
-  color: #EBBA34;
-}
-a :visited {
-  color: #EBBA34;
-}
-
 #content {
-  margin: 2em;
+  padding-left: 10vw;
+  padding-top: 5rem;
+  padding-right: 10vw;
+  box-sizing: border-box;
+  background: #f9f9f9;
 }
-
-@media screen and (min-width: 50em) {
+@media screen and (max-width: 700px), screen and (max-height: 600px) {
   #content {
-    max-width: 45em;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
   }
+}
+#content #post-info {
+  border-top: 2px solid #334061;
+  border-bottom: 2px solid #334061;
+  max-width: 20rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+#content #post-info #post-date {
+  font-weight: 400;
+}
+#content #post-body {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+}
+#content #post-body p {
+  padding-right: 30vw;
+  margin-bottom: 2rem;
+}
+#content #post-body img {
+  max-width: 100%;
+  max-height: 90vh;
+  margin-bottom: 2rem;
 }
 
 /*# sourceMappingURL=post.css.map */

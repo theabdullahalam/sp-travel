@@ -100,7 +100,7 @@
                 <!-- PRE-TITLE -->
                 <div id="pre-title-block">
                     <h3>
-                        Welcome to Sentient-Pixels,
+                        {% block pre-title %}{% endblock %}
                     </h3>
                 </div>
 
@@ -109,7 +109,7 @@
                 <!-- TITLE -->
                 <div id="title-block">
                     <h1>
-                        A Photography, Travel and Trekking Blog
+                        {% block big-title %}{% endblock %}
                     </h1>
                 </div>
 
@@ -117,10 +117,8 @@
 
                 <!-- UNDERL-TITLE -->
                 <div id="under-title">
-                    <a href="#">BLOG</a>
-                    <a href="#">PHOTOGRAPHY</a>
-                    <a href="#">PLACES</a>
-                    <a href="#">GUIDES</a>
+                    {% block under-title %}
+                    {% endblock %}
                 </div>
 
 
