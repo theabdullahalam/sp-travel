@@ -85,6 +85,9 @@
 .posts-section .posts-list .post .post-info-item {
   margin-bottom: 0rem;
 }
+.posts-section .posts-list .post span {
+  margin-top: 4px;
+}
 .posts-section .posts-list .post .read-post-link {
   text-align: center;
   width: 100%;

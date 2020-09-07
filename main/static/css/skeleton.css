@@ -134,6 +134,7 @@ body #large-header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   color: white;
   width: 100vw;
   height: 100vh;
