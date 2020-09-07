@@ -53,7 +53,7 @@ def post(request, slug):
     # post_obj=Post.objects.get(slug = str(slug))
     post_obj = {
             'header_image': static('/img/ladakh.jpg'),
-            'title': 'Dont miss this cool Image!',
+            'title': 'Dont miss this extra super cool Image!',
             'preview': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?',
             'content': '''<p>
     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique cumque, impedit quos libero ducimus deserunt repellat, unde pariatur nostrum ratione non minus sit neque aspernatur consequatur eveniet! Animi, veniam consectetur!
