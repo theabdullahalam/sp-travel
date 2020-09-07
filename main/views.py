@@ -62,6 +62,7 @@ def post(request, slug):
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem dolor ducimus porro iure aperiam consectetur libero necessitatibus magni quae nesciunt doloremque eveniet hic sit commodi quas enim rerum, sequi dolores id adipisci nostrum, aspernatur fuga est error? Corporis harum velit laudantium atque error id commodi, a numquam dolorem minima accusamus vel laborum voluptate magnam enim nihil adipisci deleniti eos et?
 </p>
 <img data-src="/static/img/cats.jpg" class="lozad" />
+<div class="caption"><small><em>Cool Cats</em></small></div>
 <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, architecto eaque asperiores saepe, nihil nisi, optio laborum blanditiis maxime impedit unde. Cum minus fugiat iure odio incidunt officiis magnam, nisi doloremque cupiditate laboriosam quod necessitatibus earum ut ducimus repellat repudiandae ipsa quo nulla quos. Deserunt architecto earum voluptas, fugiat magnam explicabo saepe? Minus iusto modi cum ab nesciunt sit dolorem adipisci nemo molestiae est. Ea saepe assumenda sit eveniet reprehenderit fugit aliquam dolor dolore dignissimos ratione, fugiat sunt earum corporis! Facilis, minus temporibus iste ex deserunt vel molestias, consequatur tempora ad eaque distinctio. Enim ipsam dolorem, error ad natus, iusto atque dignissimos voluptatum, cupiditate autem alias! Ducimus voluptates, rerum culpa porro accusantium modi incidunt, dolor deleniti placeat laborum, maiores dolorem.
 </p>
