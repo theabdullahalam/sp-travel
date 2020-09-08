@@ -38,6 +38,7 @@
 {% block body %}
 
 
+                <!-- THE POST ITSELF -->
                 <div id="post-info">
                     <h4 id="post-author">Abdullah</h4>
                     <h4 id="post-date">12th July, 2020</h4>                    
@@ -47,8 +48,10 @@
                     {{ post.content | safe }}
                 </div>
 
+
+                <!-- RELATED POSTS -->
                 <div id="related-posts">
-                    <h3>If you liked this,</h3>
+                    <h3 class="section-heading">If you liked this,</h3>
                     <div id="related-posts-grid">
                         {% for n in '123' %}
                         <div class="post">
@@ -64,18 +67,33 @@
                             
                         </div>
                     {% endfor %}
-                    </div>
-                    
+                    </div>                    
                 </div>
 
+
+
+
+                <!-- COMMENTS -->
                 <div id="comment-section">
-                    <div id="leave-a-comment">
-
-                    </div>
+                    <h3 class="section-heading">Leave a comment</h3>
+                    
+                    <form method="POST" id="comment-form">
+                        <textarea form="comment-form" placeholder="Type Comment Here"></textarea>
+                        <input type="text" placeholder="Name to Display" name="name_input" id="name-input"/>
+                        <input type="email" placeholder="Email Address (Will Not Be Shown)" name="name_input" id="email-input"/>
+                        <input type="submit" value="POST" id="submit-input"/>
+                    </form>
+                    
                     <div id="comments">
-                        {% for comment in post.comments %}
+                        {% for comment in comments %}
                             <div class="comment-block">
-
+                                <p class="comment-body">
+                                    {{ comment.body | safe}}
+                                </p>
+                                <div class="comment-info">
+                                    <span>@{{ comment.display_name | safe }}</span>
+                                    <span>{{ comment.date | safe }}</span>
+                                </div>
                             </div>
                         {% endfor %}
                     </div>

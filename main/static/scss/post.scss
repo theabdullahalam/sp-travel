@@ -6,7 +6,15 @@ $top_margin: 5rem;
 $side_margin_mobile: 1.5rem;
 $top_margin_mobile: $side_margin_mobile;
 
+
+.section-heading{
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+
 #content{
+
     padding-left: $side_margin;
     padding-top: $top_margin;
     padding-right: $side_margin;
@@ -18,7 +26,6 @@ $top_margin_mobile: $side_margin_mobile;
         padding-right: $side_margin_mobile;
         padding-top: $top_margin_mobile;
     }
-
 
 
     #post-info{
@@ -83,12 +90,7 @@ $top_margin_mobile: $side_margin_mobile;
         }
 
         margin-top: 4rem;
-        margin-bottom: 2rem;
-
-        h3{
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
+        margin-bottom: 6rem;
 
         #related-posts-grid{
 
@@ -231,6 +233,115 @@ $top_margin_mobile: $side_margin_mobile;
 
     }
 
+
+
+    #comment-section{
+
+        // margin-top: 2rem;
+
+        padding-right: $side_margin * 3;
+        @media screen and (max-width: 700px) {
+            padding-right: unset;
+        }
+
+
+        #comment-form{
+
+            display: flex;
+            flex-flow: column;
+            align-items: flex-end;
+
+            textarea, #name-input, #email-input{
+                font-size: 1rem;
+                box-sizing: border-box;
+                width: 100%;
+
+                border: 1px solid $font_color;
+                padding: 1rem;
+                margin-top: 1rem;
+
+                font-family: 'Josefin Sans', sans-serif;
+                color: $font_color;
+            }
+
+            textarea{
+                min-height: 15rem;
+            }
+
+            #submit-input{
+                
+                $vertical_padding: 8px;
+                background: $background_color;
+
+                color: $font_color;
+                min-width: 15rem;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                border: 2px solid $accent_color;
+                padding-top: $vertical_padding + 4px;
+                padding-bottom: $vertical_padding;
+                font-weight: bold;
+                font-size: 1.2rem;
+                margin-top: 2rem;
+
+                transition: background 0.2s, color 0.2s;
+
+            }
+
+            #submit-input:hover{
+                background: $accent_color;
+                color: $background_color;
+            }
+
+            ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                opacity: 30%;
+                font-family: 'Josefin Sans', sans-serif;
+            }
+            
+            
+        }
+
+
+        #comments{
+
+            margin-top: 8rem;
+            @media screen and (max-width: 700px) {
+                margin-top: 3rem;
+            }
+
+            .comment-block{
+
+                margin-bottom: 4rem;
+
+                .comment-body{
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    margin-top: 0;
+                    margin-bottom: 1rem;
+                }
+
+                .comment-info{
+                    display: flex;
+                    :nth-child(2){
+                        margin-left: 3rem;
+                    }
+
+                    @media screen and (max-width: 700px) {
+                        flex-flow: column;
+                        :nth-child(2){
+                            margin-left: unset;
+                            margin-top: 0.5rem;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+
+    }
 
 
 }

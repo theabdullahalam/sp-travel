@@ -70,16 +70,30 @@ def post(request, slug):
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repellendus nobis fugiat. Delectus doloribus et aut quis nesciunt officiis optio sit ducimus illo similique repellendus consectetur exercitationem quos cupiditate impedit voluptate tempora quo facere voluptas dolorum, dignissimos laudantium earum? Animi porro incidunt, vero asperiores amet reiciendis illo voluptatem nesciunt iusto repudiandae autem corrupti! In, mollitia!
 </p>''',
             'slug': 'dummy-post',
-        }
+    }
+
+    comment = {
+        'body': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, in quae exercitationem vel nostrum eius. Ipsa iure ab eaque, dicta animi quam, ducimus officiis eos voluptatibus odio reiciendis laudantium autem?',
+        'display_name': 'some_rando',
+        'date': '30th August 2020'
+    }
+
+    comments = []
+
+    for i in range(0,7):
+        comments.append(comment)
  
     # HUMAN FRIENDLY DATE
     # hfr_date = post_obj.created.strftime('%e %b %Y')
     # post_obj.hfr_date = hfr_date
+
+    print(comments)
  
     # CREATE CONTEXT
     context = {
         'header_image': post_obj['header_image'],
         'post': post_obj,
+        'comments': comments
     }
  
     # RETURN
