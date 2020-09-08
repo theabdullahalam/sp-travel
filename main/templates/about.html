@@ -1,0 +1,59 @@
+{% extends 'skeleton.html' %}
+
+{% load static %}
+
+{% block title %}Sentient Pixels{% endblock %}
+{% block ogtitle %}Sentient Pixels{% endblock %}
+{% block tctitle %}Sentient Pixels{% endblock %}
+
+{% block metadescription %}
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?    
+{% endblock %}
+{% block ogdescription %}
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?    
+{% endblock %}
+{% block tcdescription %}
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?    
+{% endblock %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block pre-title %}SP-Travel{% endblock %}
+{% block big-title %}About{% endblock %}
+{% block under-title %}
+                <a href="#">HOME</a>
+                <a href="#">SENTIENT-PIXELS</a>
+{% endblock %}
+
+{% block body %}
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet inventore at earum rerum perferendis perspiciatis, neque eos ipsam itaque ullam natus esse debitis. Dignissimos, maiores eum. Quam veritatis necessitatibus vero doloremque dolor sed explicabo aut illum quisquam vitae numquam officia non maxime ipsum natus, sapiente quae deleniti iure voluptates nostrum.
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam aliquam similique quisquam accusantium modi, natus harum aperiam explicabo doloribus ipsa.
+    </p>
+    <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure dolorum nam, delectus a doloremque exercitationem nesciunt nobis atque hic in fugit sint enim minima animi at omnis qui esse quas iusto quis. Perferendis, ea soluta.
+    </p>
+
+    <div id="people-list">
+
+        <h3 class="section-header">Authors</h3>
+        {% for n in '123' %}
+            <div class="person">
+                <img class="person-dp lozad" data-src="{% static 'img/dp.jpg' %}" />
+                <div class="person-info-block">
+                    <h4 class="person-name">Abdullah</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit recusandae quae facilis officia, labore cumque repellendus tempore? Culpa, veniam consequuntur?
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+
+
+    </div>
+{% endblock %}

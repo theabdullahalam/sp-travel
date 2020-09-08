@@ -1,0 +1,72 @@
+@import 'colors';
+
+$side_margin: 10vw;
+$top_margin: 5rem;
+
+$side_margin_mobile: 1.5rem;
+$top_margin_mobile: $side_margin_mobile;
+
+#content{
+    padding-left: $side_margin;
+    padding-top: $top_margin;
+    padding-right: $side_margin * 3;
+    box-sizing: border-box;
+    background: $background_color;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+
+    @media screen and (max-width: 700px), screen and (max-height: 600px) {
+        padding-left: $side_margin_mobile;
+        padding-right: $side_margin_mobile;
+        padding-top: $top_margin_mobile;
+    }
+
+
+    #people-list{
+
+        margin-top: 8rem;
+
+        .section-header{
+            font-size: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .person{
+
+            display: flex;
+            align-items: center;
+            margin-bottom: 4rem;
+
+            .person-dp{
+                $size: 12rem;
+
+                border-radius: 50%;
+                object-fit: cover;
+                height: $size;
+                width: $size;
+
+                -webkit-box-shadow: 10px 10px 8px -7px rgba(0,0,0,0.24);
+                -moz-box-shadow: 10px 10px 8px -7px rgba(0,0,0,0.24);
+                box-shadow: 10px 10px 8px -7px rgba(0,0,0,0.24);
+            }
+
+            .person-info-block{
+                
+                margin-left: 4rem;
+
+                .person-name{
+                    font-size: 1.5rem;
+                    margin-bottom: 1rem;
+                }
+
+                p{
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            }
+
+        }
+
+    }
+
+}

@@ -1,46 +1,82 @@
 {% extends 'skeleton.html' %}
+
 {% load static %}
-{% block title %}Page Title{% endblock %}
- 
+
+{% block title %}Sentient Pixels{% endblock %}
+{% block ogtitle %}Sentient Pixels{% endblock %}
+{% block tctitle %}Sentient Pixels{% endblock %}
+
+{% block metadescription %}
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?    
+{% endblock %}
+{% block ogdescription %}
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?    
+{% endblock %}
+{% block tcdescription %}
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?    
+{% endblock %}
+
+
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/posts.css' %}">
 {% endblock %}
- 
-{% block body %}
- 
- 
-<div id="posts">
 
-    <h1>Posts</h1>
+{% block pre-title %}Welcome to SP-Travel{% endblock %}
+{% block big-title %}A Travel, Photography and Trekking Blog{% endblock %}
+{% block under-title %}
+                <a href="#">BLOG</a>
+                <a href="#">PHOTOGRAPHY</a>
+                <a href="#">PLACES</a>
+                <a href="#">GUIDES</a>
+{% endblock %}
 
-    <!-- THE CONTENT -->
-    {% if posts %}
-        {% for post in posts %}
-            <div class="post">
-                <h2>{{ post.title }}</h2>
-                <p>
-                    {{ post.preview }}
-                </p>
-                <p>
-                    <a href="{% url 'post' post.slug %}">Read More</a>
-                </p>
-            </div>            
-        {% endfor %}
-    {% endif %}
 
-    <!-- PAGINATION -->
-    <div id="pagination">
-        {% if page_obj.has_previous %}
-            <div id="newer">
-                <a href="{% url 'posts' page_obj.previous_page_number %}"><i class="fas fa-arrow-left"></i> newer</a>
-            </div>
-        {% endif %}
-        {% if page_obj.has_next %}
-            <div id="older">
-                <a href="{% url 'posts' page_obj.next_page_number %}">older <i class="fas fa-arrow-right"></i></a>
-            </div>
-        {% endif %}
-    </div>
-</div>    
- 
+{% block body %}             
+                    
+                
+                
+
+                <h2>GUIDES</h3>
+
+                <div class="posts-list">
+                    {% for post in posts %}
+                        <div class="post">
+
+                            <img class="lozad" data-src="{{ post.header_image }}"/>
+                            <h3>{{ post.title }}</h3>
+                            <p>
+                                {{ post.preview | safe }}
+                            </p>
+                            
+                            <a href="#" class="post-info-item place-link">Uttarakhand</a>
+                            <span class="post-info-item">24th August, 2020</span>
+                            <span class="post-info-item"><i class="fas fa-eye"></i> 27</span>
+
+                            <a href="{% url 'post' post.slug %}" class="read-post-link">READ</a>
+                            
+                        </div>
+                    {% endfor %}                    
+                </div>
+
+
+                <!-- PAGINATION -->
+                <div id="pagination">
+                    {% if page_obj.has_previous %}
+                        <div id="newer" class="pagination-item">
+                            <a href="{% url 'posts' category page_obj.previous_page_number %}"><i class="fas fa-arrow-left"></i> newer</a>
+                        </div>
+                        {% if page_obj.has_next %}
+                            <div id="current-page" class="pagination-item">
+                                page {{ page_obj.number }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    {% if page_obj.has_next %}
+                        <div id="older" class="pagination-item">
+                            <a href="{% url 'posts' category page_obj.next_page_number %}">older <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    {% endif %}
+                </div>
+                
+                
 {% endblock %}
