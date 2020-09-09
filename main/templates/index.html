@@ -7,13 +7,13 @@
 {% block tctitle %}Sentient Pixels{% endblock %}
 
 {% block metadescription %}
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?    
+    {{ description }}
 {% endblock %}
 {% block ogdescription %}
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?    
+    {{ description }}
 {% endblock %}
 {% block tcdescription %}
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?    
+    {{ description }}
 {% endblock %}
 
 
@@ -21,8 +21,8 @@
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock %}
 
-{% block pre-title %}Welcome to SP-Travel{% endblock %}
-{% block big-title %}A Travel, Photography and Trekking Blog{% endblock %}
+{% block pre-title %}{{ pretitle }}{% endblock %}
+{% block big-title %}{{ title }}{% endblock %}
 {% block under-title %}
                 <a href="#">BLOG</a>
                 <a href="#">PHOTOGRAPHY</a>
@@ -61,6 +61,8 @@
                             {% endfor %}
 
                         </div>
+
+                        <a href="#" class="more-like-this-link">More Like This</a>
                     </div>
                 {% endfor %}
 

@@ -22,8 +22,13 @@ $top_margin_mobile: $side_margin_mobile;
 
 .posts-section{
 
+    $post_right_margin: 2.5rem;
+    $post_right_margin_mobile: 0;
+
     width: 100%;
     margin-bottom: 8rem;
+    display: flex;
+    flex-flow: column;
 
     h2{
         font-size: 1.5rem;
@@ -50,9 +55,9 @@ $top_margin_mobile: $side_margin_mobile;
             justify-content: space-between;
             min-height: 44rem;
 
-            margin-right: 2.5rem;
+            margin-right: $post_right_margin;
             @media screen and (max-width: 900px) {
-                margin-right: 0;
+                margin-right: $post_right_margin_mobile;
                 margin-bottom: 2rem;
                 flex: unset;
                 min-height: unset;
@@ -131,5 +136,28 @@ $top_margin_mobile: $side_margin_mobile;
             }
 
         }
+
     }
+
+    .more-like-this-link{
+        align-self: flex-end;
+        margin-right: $post_right_margin;
+        margin-top: 2.5rem;
+        box-sizing: content-box;
+
+        @media screen and (max-width: 900px) {
+            margin-right: $post_right_margin_mobile;
+        }
+
+        text-decoration: none;
+        border-bottom: 1px solid $accent_color;
+        padding-bottom: 1rem;
+        font-weight: bold;
+
+        transition: border-bottom 0.1s;
+    }
+    .more-like-this-link:hover{
+        border-bottom: 6px solid $accent_color;
+    }
+
 }

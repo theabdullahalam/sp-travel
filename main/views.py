@@ -19,7 +19,8 @@ def about(request):
     return render(request, 'about.html', context=context)
 
 def index(request):
-    header_image = static('img/mountains.jpg')
+    index_page = Page.objects.get(page_name='index')
+
     posts = [
         {
             'header_image': static('/img/ladakh.jpg'),
@@ -56,7 +57,10 @@ def index(request):
 
 
     context = {
-        'header_image': header_image,
+        'header_image': index_page.header_image.url,
+        'pretitle': index_page.pre_title,
+        'title': index_page.title,
+        'description': index_page.description,
         'sections': sections
     }
 
