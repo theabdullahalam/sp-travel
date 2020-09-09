@@ -1,13 +1,19 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from .models import Post, PostType
+from .models import Post, Page, Author
 from django.templatetags.static import static
  
 def about(request):
-    header_image = static('img/mountains.jpg')
-
+    about_page = Page.objects.get(page_name='about')
+    authors = Author.objects.all()
+    
     context = {
-        'header_image': header_image,
+        'header_image': about_page.header_image.url,
+        'pretitle': about_page.pre_title,
+        'title': about_page.title,
+        'description': about_page.description,
+        'content': about_page.content,
+        'authors': authors
     }
 
     return render(request, 'about.html', context=context)

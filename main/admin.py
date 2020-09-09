@@ -1,14 +1,32 @@
 from django.contrib import admin
-from .models import Post, PostType
- 
-@admin.register(PostType)
-class PostTypeAdmin(admin.ModelAdmin):
-    list_display = ('type_name',)
-    ordering = ('type_name',)
-    search_fields = ('type_name',)
- 
+from .models import Post, Place, Page, Author, Category
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'p_type')
+    list_display = ('title',)
     ordering = ('title',)
-    search_fields = ('title', 'p_type',)
+    search_fields = ('title',)
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    ordering = ('name',)
+    search_fields = ('name',)
+
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    ordering = ('name',)
+    search_fields = ('name',)
+
+@admin.register(Page)
+class PageAdmin(admin.ModelAdmin):
+    list_display = ('page_name', 'title',)
+    ordering = ('page_name',)
+    search_fields = ('page_name',)
+
+@admin.register(Place)
+class PlaceAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    ordering = ('name',)
+    search_fields = ('name',)
