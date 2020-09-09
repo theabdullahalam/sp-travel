@@ -61,11 +61,13 @@
 
                 <!-- SITE TITLE AND LOGO SECTION -->
                 <div id="site-logo-block">
+                    
                     <h2>
-                        SENTIENT <br>
-                        PIXELS
+                        <a href="{% url 'index' %}">SENTIENT <br>
+                        PIXELS</a>
                     </h2>
                     <img src="{% static 'img/sp-logo.svg' %}" />
+                
                 </div>
 
 
@@ -84,7 +86,7 @@
                                 <a href="#">PLACES</a>
                             </li>
                             <li>
-                                <a href="#">POSTS</a>
+                                <a href="{% url 'posts' 'all' %}">POSTS</a>
                             </li>
                             <li>
                                 <a href="{% url 'about' %}">ABOUT</a>

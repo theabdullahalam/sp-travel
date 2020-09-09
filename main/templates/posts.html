@@ -2,18 +2,18 @@
 
 {% load static %}
 
-{% block title %}Sentient Pixels{% endblock %}
-{% block ogtitle %}Sentient Pixels{% endblock %}
-{% block tctitle %}Sentient Pixels{% endblock %}
+{% block title %}{{ section }} - Sentient Pixels{% endblock %}
+{% block ogtitle %}{{ section }} - Sentient Pixels{% endblock %}
+{% block tctitle %}{{ section }} - Sentient Pixels{% endblock %}
 
 {% block metadescription %}
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?    
+    {{ description }}
 {% endblock %}
 {% block ogdescription %}
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?    
+    {{ description }}
 {% endblock %}
 {% block tcdescription %}
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?    
+    {{ description }}
 {% endblock %}
 
 
@@ -21,13 +21,13 @@
 <link rel="stylesheet" href="{% static 'css/posts.css' %}">
 {% endblock %}
 
-{% block pre-title %}Welcome to SP-Travel{% endblock %}
-{% block big-title %}A Travel, Photography and Trekking Blog{% endblock %}
+{% block pre-title %}SP-Travel{% endblock %}
+{% block big-title %}{{ section }} Posts{% endblock %}
 {% block under-title %}
-                <a href="#">BLOG</a>
-                <a href="#">PHOTOGRAPHY</a>
+                <a href="{% url 'posts' 'category' 'blog' %}">BLOG</a>
+                <a href="{% url 'posts' 'category' 'photography' %}">PHOTOGRAPHY</a>
                 <a href="#">PLACES</a>
-                <a href="#">GUIDES</a>
+                <a href="{% url 'posts' 'category' 'guide' %}">GUIDES</a>
 {% endblock %}
 
 
@@ -36,21 +36,21 @@
                 
                 
 
-                <h2>GUIDES</h3>
+                <h2>{{ section.upper }}</h3>
 
                 <div class="posts-list">
                     {% for post in posts %}
                         <div class="post">
 
-                            <img class="lozad" data-src="{{ post.header_image }}"/>
+                            <img class="lozad" data-src="{{ post.header_image.url }}"/>
                             <h3>{{ post.title }}</h3>
                             <p>
                                 {{ post.preview | safe }}
                             </p>
                             
-                            <a href="#" class="post-info-item place-link">Uttarakhand</a>
-                            <span class="post-info-item">24th August, 2020</span>
-                            <span class="post-info-item"><i class="fas fa-eye"></i> 27</span>
+                            <a href="{% url 'posts' 'place' post.place.slug %}" class="post-info-item place-link">{{ post.place }}</a>
+                            <span class="post-info-item">{{ post.hfr_date }}</span>
+                            <span class="post-info-item"><i class="fas fa-eye"></i> {{ post.views }}</span>
 
                             <a href="{% url 'post' post.slug %}" class="read-post-link">READ</a>
                             

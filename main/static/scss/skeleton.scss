@@ -32,6 +32,9 @@ body{
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
+        @media screen and (max-width: 700px){
+            background-attachment: unset;
+        }
         color: white;
 
         width: 100vw;
@@ -51,6 +54,9 @@ body{
         display: grid;
         grid-template-columns: 3fr 2fr;
         grid-template-rows: 5fr auto auto 6fr;
+        @media screen and (max-width: 700px){
+            grid-template-rows: 3fr auto auto 6fr;
+        }
 
 
 
@@ -85,6 +91,14 @@ body{
                 @media screen and (max-width: $mobile_split_width) {
                     font-size: 1.3rem;
                     margin-bottom: -8px;
+                }
+
+                a {
+                    text-decoration: none;
+                }
+
+                a:visited{
+                    text-decoration: none;
                 }
             }
             img{
@@ -139,6 +153,10 @@ body{
             @media screen and (max-height: 600px) {
                 margin-top: 3rem;
             }
+
+            @media screen and (max-width: 700px) {
+                margin-top: 1rem;
+            } 
 
             grid-row: 2 / 3;
             grid-column: 1 / 2;

@@ -24,12 +24,14 @@
 
 
 {% block pre-title %}SP-Travel{% endblock %}
-{% block big-title %}Somewhere in Himachal Pradesh{% endblock %}
+{% block big-title %}{{ post.title }}{% endblock %}
 {% block under-title %}
-                    <a href="#">Uttarakhand</a>
-                    <span>12th July</span>
-                    <a href="#">Blog</a>
-                    <span class="post-info-item"><i class="fas fa-eye"></i> 27</span>
+                    <a href="{% url 'posts' 'place' post.place.slug %}">{{ post.place }}</a>
+                    <span>{{ post.hfr_date }}</span>
+                    {% for category in categories %}
+                        <a href="{% url 'posts' 'category' category.slug %}">{{ category.name }}</a>
+                    {% endfor %}
+                    <span class="post-info-item"><i class="fas fa-eye"></i> {{ post.views }}</span>
 {% endblock %}
 
 
@@ -40,8 +42,10 @@
 
                 <!-- THE POST ITSELF -->
                 <div id="post-info">
-                    <h4 id="post-author">Abdullah</h4>
-                    <h4 id="post-date">12th July, 2020</h4>                    
+                    {% for author in authors %}
+                        <h4 class="post-author">{{ author.name }}</h4>
+                    {% endfor %}
+                    <h4 id="post-date">{{ post.hfr_date }}</h4>                    
                 </div>
 
                 <div id="post-body">

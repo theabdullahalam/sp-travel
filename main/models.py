@@ -15,11 +15,11 @@ class Place(models.Model):
     def save(self, *args, **kwargs): 
         # GENERATE SLUG
         if not self.slug:
-            self.slug = slugify(self.title)
-        return super(Post, self).save(*args, **kwargs)
+            self.slug = slugify(self.name)
+        return super(Place, self).save(*args, **kwargs)
  
     def __str__(self):
-        return str(self.title)
+        return str(self.name)
  
     class Meta:
         verbose_name = 'Place'
@@ -54,11 +54,11 @@ class Category(models.Model):
     def save(self, *args, **kwargs): 
         # GENERATE SLUG
         if not self.slug:
-            self.slug = slugify(self.title)
-        return super(Post, self).save(*args, **kwargs)
+            self.slug = slugify(self.name)
+        return super(Category, self).save(*args, **kwargs)
  
     def __str__(self):
-        return str(self.title)
+        return str(self.name)
  
     class Meta:
         verbose_name = 'Category'
@@ -77,7 +77,7 @@ class Post(models.Model):
     place = models.ForeignKey(Place, on_delete=models.CASCADE)
     categories = models.ManyToManyField(Category)
     authors = models.ManyToManyField(Author)
-    views = models.IntegerField(editable=False)
+    views = models.IntegerField(editable=False, default=0)
     published = models.BooleanField(default=False)
     slug = models.SlugField(unique=True, max_length=100, blank=True)
  
