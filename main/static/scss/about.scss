@@ -39,11 +39,16 @@ $top_margin_mobile: $side_margin_mobile;
 
             .person-dp{
                 $size: 12rem;
+                $mobile_size: 8rem;                
 
                 border-radius: 50%;
                 object-fit: cover;
                 height: $size;
                 width: $size;
+                @media screen and (max-width: 700px) {
+                    height: $mobile_size;
+                    width: $mobile_size;
+                }
 
                 -webkit-box-shadow: 10px 10px 8px -7px rgba(0,0,0,0.24);
                 -moz-box-shadow: 10px 10px 8px -7px rgba(0,0,0,0.24);
@@ -53,6 +58,9 @@ $top_margin_mobile: $side_margin_mobile;
             .person-info-block{
                 
                 margin-left: 4rem;
+                @media screen and (max-width: 700px) {
+                    margin-left: 2rem;
+                }
 
                 .person-name{
                     font-size: 1.5rem;

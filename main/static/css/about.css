@@ -35,8 +35,19 @@
   -moz-box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.24);
   box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.24);
 }
+@media screen and (max-width: 700px) {
+  #content #people-list .person .person-dp {
+    height: 8rem;
+    width: 8rem;
+  }
+}
 #content #people-list .person .person-info-block {
   margin-left: 4rem;
+}
+@media screen and (max-width: 700px) {
+  #content #people-list .person .person-info-block {
+    margin-left: 2rem;
+  }
 }
 #content #people-list .person .person-info-block .person-name {
   font-size: 1.5rem;
