@@ -82,9 +82,10 @@
                     <h3 class="section-heading">Leave a comment</h3>
                     
                     <form method="POST" id="comment-form">
-                        <textarea form="comment-form" placeholder="Type Comment Here"></textarea>
+                        {% csrf_token %} 
+                        <textarea form="comment-form" placeholder="Type Comment Here" name="comment_area"></textarea>
                         <input type="text" placeholder="Name to Display" name="name_input" id="name-input"/>
-                        <input type="email" placeholder="Email Address (Will Not Be Shown)" name="name_input" id="email-input"/>
+                        <input type="email" placeholder="Email Address (Will Not Be Shown)" name="email_input" id="email-input"/>
                         <input type="submit" value="POST" id="submit-input"/>
                     </form>
                     
@@ -92,11 +93,11 @@
                         {% for comment in comments %}
                             <div class="comment-block">
                                 <p class="comment-body">
-                                    {{ comment.body | safe}}
+                                    {{ comment.content | safe}}
                                 </p>
                                 <div class="comment-info">
-                                    <span>@{{ comment.display_name | safe }}</span>
-                                    <span>{{ comment.date | safe }}</span>
+                                    <span>@{{ comment.username | safe }}</span>
+                                    <span>{{ comment.hfr_date | safe }}</span>
                                 </div>
                             </div>
                         {% endfor %}

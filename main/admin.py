@@ -1,5 +1,12 @@
 from django.contrib import admin
-from .models import Post, Place, Page, Author, Category
+from .models import Post, Place, Page, Author, Category, Comment
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    pass
+    # list_display = ('title',)
+    # ordering = ('title',)
+    # search_fields = ('title',)
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):

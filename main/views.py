@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from .models import Post, Page, Author, Category, Place
+from .models import Post, Page, Author, Category, Place, Comment
 from django.templatetags.static import static
+from django.shortcuts import redirect
+from django.urls import reverse
  
 def about(request):
     about_page = Page.objects.get(page_name='about')
@@ -68,39 +70,39 @@ def index(request):
     return render(request, 'index.html', context=context)
  
 def post(request, slug):
+
     # FETCH OBJ
     post_obj=Post.objects.get(slug = str(slug))
-    # post_obj = {
-    #         'header_image': static('/img/ladakh.jpg'),
-    #         'title': 'Dont miss this extra super cool Image!',
-    #         'preview': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?',
-    #         'content': '''<p>
-    #                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique cumque, impedit quos libero ducimus deserunt repellat, unde pariatur nostrum ratione non minus sit neque aspernatur consequatur eveniet! Animi, veniam consectetur!
-    #                 </p>
-    #                 <p>
-    #                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem dolor ducimus porro iure aperiam consectetur libero necessitatibus magni quae nesciunt doloremque eveniet hic sit commodi quas enim rerum, sequi dolores id adipisci nostrum, aspernatur fuga est error? Corporis harum velit laudantium atque error id commodi, a numquam dolorem minima accusamus vel laborum voluptate magnam enim nihil adipisci deleniti eos et?
-    #                 </p>
-    #                 <img data-src="/static/img/cats.jpg" class="lozad" />
-    #                 <div class="caption"><small><em>Cool Cats</em></small></div>
-    #                 <p>
-    #                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, architecto eaque asperiores saepe, nihil nisi, optio laborum blanditiis maxime impedit unde. Cum minus fugiat iure odio incidunt officiis magnam, nisi doloremque cupiditate laboriosam quod necessitatibus earum ut ducimus repellat repudiandae ipsa quo nulla quos. Deserunt architecto earum voluptas, fugiat magnam explicabo saepe? Minus iusto modi cum ab nesciunt sit dolorem adipisci nemo molestiae est. Ea saepe assumenda sit eveniet reprehenderit fugit aliquam dolor dolore dignissimos ratione, fugiat sunt earum corporis! Facilis, minus temporibus iste ex deserunt vel molestias, consequatur tempora ad eaque distinctio. Enim ipsam dolorem, error ad natus, iusto atque dignissimos voluptatum, cupiditate autem alias! Ducimus voluptates, rerum culpa porro accusantium modi incidunt, dolor deleniti placeat laborum, maiores dolorem.
-    #                 </p>
-    #                 <p>
-    #                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repellendus nobis fugiat. Delectus doloribus et aut quis nesciunt officiis optio sit ducimus illo similique repellendus consectetur exercitationem quos cupiditate impedit voluptate tempora quo facere voluptas dolorum, dignissimos laudantium earum? Animi porro incidunt, vero asperiores amet reiciendis illo voluptatem nesciunt iusto repudiandae autem corrupti! In, mollitia!
-    #                 </p>''',
-    #         'slug': 'dummy-post',
+
+    # ADD COMMENT IF REQUEST IS POST
+    print("The method is ", request.method)
+    if request.method == 'POST':
+        # FETCH COMMENT INFO
+        comment_content = str(request.POST['comment_area'])
+        username = str(request.POST['name_input'])
+
+        comment = Comment(content=comment_content, username=username, post=post_obj)
+        comment.save()
+
+        # REDIRECT TO POST AGAIN BUT TO THE COMMENTS LIST
+        redirecturl = reverse('post', args=(slug,)) + '#comment-section'
+        return redirect(redirecturl)
+
+
+    # comment = {
+    #     'body': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, in quae exercitationem vel nostrum eius. Ipsa iure ab eaque, dicta animi quam, ducimus officiis eos voluptatibus odio reiciendis laudantium autem?',
+    #     'display_name': 'some_rando',
+    #     'date': '30th August 2020'
     # }
 
-    comment = {
-        'body': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, in quae exercitationem vel nostrum eius. Ipsa iure ab eaque, dicta animi quam, ducimus officiis eos voluptatibus odio reiciendis laudantium autem?',
-        'display_name': 'some_rando',
-        'date': '30th August 2020'
-    }
+    comments = Comment.objects.filter(post__id=post_obj.id).order_by('-created')
+    for comment in comments:
+        hfr_date = comment.created.strftime('%e %b %Y')
+        comment.hfr_date = hfr_date
 
-    comments = []
 
-    for i in range(0,7):
-        comments.append(comment)
+    # for i in range(0,7):
+    #     comments.append(comment)
  
     # HUMAN FRIENDLY DATE
     hfr_date = post_obj.created.strftime('%e %b %Y')
