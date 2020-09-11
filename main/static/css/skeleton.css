@@ -232,6 +232,11 @@ body #large-header #menu-block #navmenu ul li {
 body #large-header #menu-block #navmenu ul li a {
   padding-left: 2rem;
 }
+@media screen and (max-width: 1600px) {
+  body #large-header #menu-block #navmenu ul li a {
+    padding-left: 0;
+  }
+}
 body #large-header #pre-title-block {
   grid-row: 2/3;
   grid-column: 1/2;

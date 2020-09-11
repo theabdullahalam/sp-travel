@@ -23,40 +23,28 @@ def about(request):
 def index(request):
     index_page = Page.objects.get(page_name='index')
 
-    posts = [
-        {
-            'header_image': static('/img/ladakh.jpg'),
-            'title': 'Dont miss this cool Image!',
-            'preview': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?',
-            'slug': 'dummy-post'
-        },
-        {
-            'header_image': static('/img/cats.jpg'),
-            'title': 'Dont miss this cool Image!',
-            'preview': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam? Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia!',
-            'slug': 'dummy-post'
-        },
-        {
-            'header_image': static('/img/monkey.jpg'),
-            'title': 'Dont miss this cool Image!',
-            'preview': 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi sapiente vel minima ex cumque qui esse eos mollitia veniam?',
-            'slug': 'dummy-post'
-        }
-    ]
+    sections = []
 
+    categories = Category.objects.all()
+    for category in categories:
+        # GET TOP 4 POSTS UNDER CATEGORT
+        posts = Post.objects.filter(categories__id = category.id).order_by('views', 'title').filter(published=True)[:3]
 
-    sections = [
-        {
-            'name': 'Latest Posts',
-            'posts': posts
-        },
+        # SET DATE AND PREVIEW
+        for post in posts:
+            hfr_date = post.created.strftime('%e %b %Y')
+            post.hfr_date = hfr_date
+    
+            post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
 
-        {
-            'name': 'Guides',
+        # CREATE SECTION DICT
+        section = {
+            'name': category.name,
             'posts': posts
         }
-    ]
 
+
+        sections.append(section)
 
     context = {
         'header_image': index_page.header_image.url,
@@ -89,22 +77,13 @@ def post(request, slug):
         return redirect(redirecturl)
 
 
-    # comment = {
-    #     'body': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, in quae exercitationem vel nostrum eius. Ipsa iure ab eaque, dicta animi quam, ducimus officiis eos voluptatibus odio reiciendis laudantium autem?',
-    #     'display_name': 'some_rando',
-    #     'date': '30th August 2020'
-    # }
-
-    comments = Comment.objects.filter(post__id=post_obj.id).order_by('-created')
+    # fetch comments
+    comments = Comment.objects.filter(post__id=post_obj.id).order_by('-created').filter(published=True)
     for comment in comments:
         hfr_date = comment.created.strftime('%e %b %Y')
         comment.hfr_date = hfr_date
-
-
-    # for i in range(0,7):
-    #     comments.append(comment)
  
-    # HUMAN FRIENDLY DATE
+    # HUMAN FRIENDLY DATE FOR POST
     hfr_date = post_obj.created.strftime('%e %b %Y')
     post_obj.hfr_date = hfr_date
 
@@ -113,6 +92,10 @@ def post(request, slug):
 
     # AUTHORS OF THE POST
     authors = post_obj.authors.all()
+
+    # INCREMENT POST VIEWS
+    post_obj.views = int(post_obj.views) + 1
+    post_obj.save()
  
     # CREATE CONTEXT
     context = {
@@ -136,19 +119,19 @@ def posts(request, section='all', slug='none', pageno=1):
 
     
     if section == 'category':
-        posts = Post.objects.filter(categories__slug = slug).order_by('-created', 'title')
+        posts = Post.objects.filter(categories__slug = slug).order_by('-created', 'title').filter(published=True)
         category = Category.objects.get(slug=slug)
         section_name = str(category.name).title()
         header_image = category.header_image.url
 
     elif section == 'place':
-        posts = Post.objects.filter(place__slug = slug).order_by('-created', 'title')
+        posts = Post.objects.filter(place__slug = slug).order_by('-created', 'title').filter(published=True)
         place = Place.objects.get(slug=slug)
         section_name = str(place.name).title()
         header_image = place.header_image.url
 
     else:
-        posts = Post.objects.all().order_by('-created', 'title')
+        posts = Post.objects.all().order_by('-created', 'title').filter(published=True)
         section_name = 'All'
  
     # PAGINATE
@@ -173,7 +156,8 @@ def posts(request, section='all', slug='none', pageno=1):
         'posts': posts,
         'pageinator': paginator,
         'page_obj': page_obj,
-    }
+    }   
+    
  
     # RETURN
     return render(request, 'posts.html', context=context)

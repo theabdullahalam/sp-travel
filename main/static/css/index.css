@@ -40,6 +40,7 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 44rem;
+  max-width: 40%;
   margin-right: 2.5rem;
 }
 @media screen and (max-width: 900px) {
