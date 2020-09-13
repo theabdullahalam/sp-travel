@@ -189,6 +189,45 @@
     margin-left: 0;
   }
 }
+#content #about-authors h3 {
+  margin-bottom: 2rem;
+}
+#content #about-authors .person {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+#content #about-authors .person .person-dp {
+  border-radius: 50%;
+  object-fit: cover;
+  height: 12rem;
+  width: 12rem;
+  -webkit-box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.24);
+  box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.24);
+}
+@media screen and (max-width: 700px) {
+  #content #about-authors .person .person-dp {
+    height: 8rem;
+    width: 8rem;
+  }
+}
+#content #about-authors .person .person-info-block {
+  margin-left: 4rem;
+}
+@media screen and (max-width: 700px) {
+  #content #about-authors .person .person-info-block {
+    margin-left: 2rem;
+  }
+}
+#content #about-authors .person .person-info-block .person-name {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+#content #about-authors .person .person-info-block p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 #content #comment-section {
   padding-right: 30vw;
 }

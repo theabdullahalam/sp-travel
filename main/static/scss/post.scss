@@ -232,6 +232,57 @@ $top_margin_mobile: $side_margin_mobile;
     }
 
 
+    #about-authors{
+
+        h3{
+            margin-bottom: 2rem;
+        }
+
+        .person{
+
+            display: flex;
+            align-items: center;
+            margin-bottom: 4rem;
+
+            .person-dp{
+                $size: 12rem;
+                $mobile_size: 8rem;                
+
+                border-radius: 50%;
+                object-fit: cover;
+                height: $size;
+                width: $size;
+                @media screen and (max-width: 700px) {
+                    height: $mobile_size;
+                    width: $mobile_size;
+                }
+
+                -webkit-box-shadow: 10px 10px 8px -7px rgba(0,0,0,0.24);
+                -moz-box-shadow: 10px 10px 8px -7px rgba(0,0,0,0.24);
+                box-shadow: 10px 10px 8px -7px rgba(0,0,0,0.24);
+            }
+
+            .person-info-block{
+                
+                margin-left: 4rem;
+                @media screen and (max-width: 700px) {
+                    margin-left: 2rem;
+                }
+
+                .person-name{
+                    font-size: 1.5rem;
+                    margin-bottom: 1rem;
+                }
+
+                p{
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            }
+
+        }
+    }
+
 
     #comment-section{
 

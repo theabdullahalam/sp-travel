@@ -24,10 +24,10 @@
 {% block pre-title %}{{ pretitle }}{% endblock %}
 {% block big-title %}{{ title }}{% endblock %}
 {% block under-title %}
-                <a href="{% url 'posts' 'category' 'blog' %}">BLOG</a>
-                <a href="{% url 'posts' 'category' 'photography' %}">PHOTOGRAPHY</a>
+                {% for category in categories %}
+                <a href="{% url 'posts' 'category' category.slug %}">{{ category.name.upper }}</a>
+                {% endfor %}
                 <a href="#">PLACES</a>
-                <a href="{% url 'posts' 'category' 'guide' %}">GUIDES</a>
 {% endblock %}
 
 

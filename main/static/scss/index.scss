@@ -53,8 +53,19 @@ $top_margin_mobile: $side_margin_mobile;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 44rem;
+            min-height: 43rem;
+            @media screen and (max-width: 1500px) {
+                min-height: 38rem;
+            }
+            @media screen and (max-width: 1200px) {
+                min-height: 35rem;
+            }
+
+
             max-width: 40%;
+            @media screen and (max-width: 900px) {
+                max-width: unset;
+            }
 
             margin-right: $post_right_margin;
             @media screen and (max-width: 900px) {

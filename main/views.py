@@ -4,6 +4,26 @@ from .models import Post, Page, Author, Category, Place, Comment
 from django.templatetags.static import static
 from django.shortcuts import redirect
 from django.urls import reverse
+
+import random
+
+def get_paragraph_preview(content):
+    preview = ''
+
+    try:
+        first_para = str(content).split('</p>')[0].split('<p>')[1]
+        first_twenty = first_para.split(' ')[:20]
+        # remove comma from last
+        if first_twenty[-1][-1] == ',':
+            first_twenty[-1] = first_twenty[-1][:-1]
+
+        preview = '{}...'.format(' '.join(first_twenty), '...')
+    except IndexError as ie:
+        print(str(ie))
+        preview = content
+
+    return preview
+    
  
 def about(request):
     about_page = Page.objects.get(page_name='about')
@@ -28,14 +48,16 @@ def index(request):
     categories = Category.objects.all()
     for category in categories:
         # GET TOP 4 POSTS UNDER CATEGORT
-        posts = Post.objects.filter(categories__id = category.id).order_by('views', 'title').filter(published=True)[:3]
+        posts = Post.objects.filter(category__id = category.id).order_by('views', 'title').filter(published=True)[:3]
 
         # SET DATE AND PREVIEW
         for post in posts:
             hfr_date = post.created.strftime('%e %b %Y')
             post.hfr_date = hfr_date
-    
-            post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
+
+            post.preview = get_paragraph_preview(post.content)
+
+            
 
         # CREATE SECTION DICT
         section = {
@@ -51,7 +73,8 @@ def index(request):
         'pretitle': index_page.pre_title,
         'title': index_page.title,
         'description': index_page.description,
-        'sections': sections
+        'sections': sections,
+        'categories': categories
     }
 
 
@@ -88,7 +111,7 @@ def post(request, slug):
     post_obj.hfr_date = hfr_date
 
     # CATEGORIES OF THE POST
-    categories = post_obj.categories.all()
+    category = Category.objects.get(id=post_obj.category.id)
 
     # AUTHORS OF THE POST
     authors = post_obj.authors.all()
@@ -96,14 +119,87 @@ def post(request, slug):
     # INCREMENT POST VIEWS
     post_obj.views = int(post_obj.views) + 1
     post_obj.save()
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # THREE RELATED POSTS
+    related_posts = []
+    forbidden_ids = [post_obj.id]
+
+    # LISTS OF POSTS TO USE
+    category_posts = Post.objects.filter(category__id = post_obj.category.id)
+    place_posts = Post.objects.filter(place__id = post_obj.place.id)
+
+    # FIRST RELATED POST
+    post1 = None
+    most_viewed = category_posts.order_by('views')
+    index = 0
+    try:
+        while True:
+            post1 = most_viewed[index]
+
+            if post1.id in forbidden_ids:
+                index += 1
+            else:
+                related_posts.append(post1)
+                forbidden_ids.append(post1.id)
+                break
+    except IndexError:
+        pass   
+
+    # SECOND RELATED POST IS A RANDOM POST FROM SAME CATEGORY
+    post2 = None
+    latest = category_posts.order_by('-created')
+    index = 0
+    try:
+        while True:
+            post2 = latest[index]
+
+            if post2.id in forbidden_ids:
+                index += 1
+            else:
+                related_posts.append(post2)
+                forbidden_ids.append(post2.id)
+                break
+    except IndexError:
+        pass
+
+    # THIRD RELATED POST IS RANDOM POST FROM SAME PLACE
+    post3 = None
+    latest = place_posts.order_by('-created')
+    index = 0
+    try:
+        while True:
+            post3 = latest[index]
+
+            if post3.id in forbidden_ids:
+                index += 1
+            else:
+                related_posts.append(post3)
+                forbidden_ids.append(post3.id)
+                break
+    except IndexError:
+        pass
+     
     # CREATE CONTEXT
     context = {
         'header_image': post_obj.header_image.url,
-        'categories': categories,
+        'category': category,
         'authors': authors,
         'post': post_obj,
-        'comments': comments
+        'comments': comments,
+        'related_posts': related_posts
     }
  
     # RETURN
@@ -119,7 +215,7 @@ def posts(request, section='all', slug='none', pageno=1):
 
     
     if section == 'category':
-        posts = Post.objects.filter(categories__slug = slug).order_by('-created', 'title').filter(published=True)
+        posts = Post.objects.filter(category__slug = slug).order_by('-created', 'title').filter(published=True)
         category = Category.objects.get(slug=slug)
         section_name = str(category.name).title()
         header_image = category.header_image.url
@@ -146,7 +242,10 @@ def posts(request, section='all', slug='none', pageno=1):
         hfr_date = post.created.strftime('%e %b %Y')
         post.hfr_date = hfr_date
  
-        post.preview = str(post.content).split('</p>')[0].split('<p>')[1]
+        post.preview = get_paragraph_preview(post.content)
+
+    # CATEGORY LIST FOR HEADER
+    categories = Category.objects.all()
  
     # SET CONTEXT
     context = {
@@ -156,6 +255,7 @@ def posts(request, section='all', slug='none', pageno=1):
         'posts': posts,
         'pageinator': paginator,
         'page_obj': page_obj,
+        'categories': categories
     }   
     
  

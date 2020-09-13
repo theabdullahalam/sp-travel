@@ -28,9 +28,7 @@
 {% block under-title %}
                     <a href="{% url 'posts' 'place' post.place.slug %}">{{ post.place }}</a>
                     <span>{{ post.hfr_date }}</span>
-                    {% for category in categories %}
-                        <a href="{% url 'posts' 'category' category.slug %}">{{ category.name }}</a>
-                    {% endfor %}
+                    <a href="{% url 'posts' 'category' category.slug %}">{{ category.name }}</a>
                     <span class="post-info-item"><i class="fas fa-eye"></i> {{ post.views }}</span>
 {% endblock %}
 
@@ -57,21 +55,39 @@
                 <div id="related-posts">
                     <h3 class="section-heading">If you liked this,</h3>
                     <div id="related-posts-grid">
-                        {% for n in '123' %}
+                        {% for p in related_posts %}
                         <div class="post">
 
-                            <img class="lozad" data-src="{{ post.header_image }}"/>
-                            <h3>{{ post.title }}</h3>
+                            <img class="lozad" data-src="{{ p.header_image.url }}"/>
+                            <h3>{{ p.title }}</h3>
 
-                            <a href="#" class="post-info-item place-link">Uttarakhand</a>
+                            <a href="#" class="post-info-item place-link">{{ p.place.name }}</a>
                             <span class="post-info-item">24th August, 2020</span>
-                            <span class="post-info-item"><i class="fas fa-eye"></i> 27</span>
+                            <span class="post-info-item"><i class="fas fa-eye"></i> {{ p.views }}</span>
 
-                            <a href="{% url 'post' post.slug %}" class="read-post-link">READ</a>
+                            <a href="{% url 'post' p.slug %}" class="read-post-link">READ</a>
                             
                         </div>
                     {% endfor %}
                     </div>                    
+                </div>
+
+
+
+                <!-- ABOUT THE AUTHORS -->
+                <div id="about-authors">
+                    <h3 class="section-heading">About The Authors</h3>
+                    {% for author in authors %}
+                        <div class="person">
+                            <img class="person-dp lozad" data-src="{{ author.display_picture.url }}" />
+                            <div class="person-info-block">
+                                <h4 class="person-name">{{ author.name }}</h4>
+                                <p>
+                                    {{ author.bio | safe }}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
 
 

@@ -73,7 +73,7 @@ class Post(models.Model):
     created = models.DateTimeField(editable=False)
     modified = models.DateTimeField(editable=False)
     place = models.ForeignKey(Place, on_delete=models.CASCADE)
-    categories = models.ManyToManyField(Category)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     authors = models.ManyToManyField(Author)
     views = models.IntegerField(editable=False, default=0)
     published = models.BooleanField(default=False)
