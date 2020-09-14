@@ -83,7 +83,7 @@
                     
                         <ul>
                             <li>
-                                <a href="#">PLACES</a>
+                                <a href="{% url 'places' %}">PLACES</a>
                             </li>
                             <li>
                                 <a href="{% url 'posts' 'all' %}">POSTS</a>
@@ -153,14 +153,13 @@
                                 <a href="#">PLACES</a>
                             </li>
                             <li>
-                                <a href="#">POSTS</a>
+                                <a href="{% url 'posts' 'all' %}">POSTS</a>
                             </li>
                             <li>
-                                <a href="#">ABOUT</a>
+                                <a href="{% url 'about' %}">ABOUT</a>
                             </li>
                             <li>
-                                <a href="#">HOME</a>
-                            </li>
+                                <a href="{% url 'index' %}">HOME</a>
                         </ul>
                     </div>
                 </div>

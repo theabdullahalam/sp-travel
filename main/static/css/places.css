@@ -1,0 +1,100 @@
+#content {
+  padding-left: 10vw;
+  padding-top: 5rem;
+  padding-right: 10vw;
+  box-sizing: border-box;
+  background: #f9f9f9;
+  margin-bottom: 8rem;
+}
+@media screen and (max-width: 700px), screen and (max-height: 600px) {
+  #content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+  }
+}
+#content #section-header {
+  margin-bottom: 3rem;
+}
+@media screen and (max-width: 700px) {
+  #content a {
+    width: 100%;
+  }
+}
+#content #places-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+#content #places-list .place-card {
+  height: 18rem;
+  width: 27rem;
+  position: relative;
+  background-size: cover;
+  background-position: bottom;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+  -webkit-box-shadow: 3px 4px 7px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 3px 4px 7px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 4px 7px 0px rgba(0, 0, 0, 0.3);
+  transition: -webkit-box-shadow 0.2s;
+  transition: -moz-box-shadow 0.2s;
+  transition: box-shadow 0.2s;
+}
+@media screen and (max-width: 700px) {
+  #content #places-list .place-card {
+    height: 18rem;
+    width: 100%;
+    margin-right: unset;
+  }
+}
+#content #places-list .place-card .place-name-section {
+  position: absolute;
+  width: 100%;
+  bottom: -1px;
+  left: 0;
+  background: snow;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  box-sizing: border-box;
+  border-radius: 0px 0px 10px 10px;
+}
+#content #places-list .place-card .place-name-section .place-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+@media screen and (max-width: 700px) {
+  #content #places-list .place-card .place-name-section {
+    height: 3rem;
+  }
+  #content #places-list .place-card .place-name-section .place-name {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+}
+#content #places-list a:hover .place-card {
+  -webkit-box-shadow: 7px 11px 25px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 7px 11px 25px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 7px 11px 25px 0px rgba(0, 0, 0, 0.3);
+}
+#content #pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 4rem;
+}
+#content #pagination .pagination-item {
+  font-size: 1.3rem;
+  display: inline-block;
+  box-sizing: border-box;
+}
+#content #pagination .pagination-item a {
+  text-decoration: none;
+  border-bottom: 1px solid #EBBA34;
+  padding-bottom: 1rem;
+}
+
+/*# sourceMappingURL=places.css.map */

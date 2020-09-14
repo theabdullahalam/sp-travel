@@ -261,3 +261,33 @@ def posts(request, section='all', slug='none', pageno=1):
  
     # RETURN
     return render(request, 'posts.html', context=context)
+
+
+
+def places(request, pageno=1):
+    # ALL PLACES
+    places = Place.objects.all()
+
+    # PAGINATE
+    paginator = Paginator(places, 10)
+    page_num = int(pageno)
+    page_obj = paginator.get_page(page_num)
+    places = page_obj.object_list
+
+    # CATEGORY LIST FOR HEADER
+    categories = Category.objects.all()
+
+    context = {
+        'header_image': '/media/page_headers/ladakh_Vc7jW0f.jpg',
+        'description': "Blah Bluh Bleh",
+        'places': places,
+        'pageinator': paginator,
+        'page_obj': page_obj,
+        'categories': categories
+    }   
+    
+ 
+    # RETURN
+    return render(request, 'places.html', context=context)
+
+

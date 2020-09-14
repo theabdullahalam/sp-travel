@@ -1,0 +1,79 @@
+{% extends 'skeleton.html' %}
+
+{% load static %}
+
+{% block title %}Places - Sentient Pixels{% endblock %}
+{% block ogtitle %}Places - Sentient Pixels{% endblock %}
+{% block tctitle %}Places - Sentient Pixels{% endblock %}
+
+{% block metadescription %}
+    {{ description }}
+{% endblock %}
+{% block ogdescription %}
+    {{ description }}
+{% endblock %}
+{% block tcdescription %}
+    {{ description }}
+{% endblock %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/places.css' %}">
+{% endblock %}
+
+{% block pre-title %}SP-Travel{% endblock %}
+{% block big-title %}Stories of Places{% endblock %}
+{% block under-title %}
+                {% for category in categories %}
+                <a href="{% url 'posts' 'category' category.slug %}">{{ category.name.upper }}</a>
+                {% endfor %}
+                <a href="#">PLACES</a>
+{% endblock %}
+
+
+{% block body %}             
+                    
+                
+                
+
+                <h2 id="section-header">PLACES</h3>
+
+                
+                <div id="places-list">
+
+                    {% for place in places %}
+                    <a href="{% url 'posts' 'place' place.slug %}">
+                        <div class="place-card" style="background-image: url({{ place.header_image.url }});">
+                            <div class="place-name-section">
+                                <span class="place-name">{{ place.name }}</span>
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+
+                </div>
+
+
+                <!-- PAGINATION -->
+                <div id="pagination">
+                    {% if page_obj.has_previous %}
+                        <div id="newer" class="pagination-item">
+                            <a href="{% url 'places' page_obj.previous_page_number %}"><i class="fas fa-arrow-left"></i> newer</a>
+                        </div>
+                        {% if page_obj.has_next %}
+                            <div id="current-page" class="pagination-item">
+                                page {{ page_obj.number }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    {% if page_obj.has_next %}
+                        <div id="older" class="pagination-item">
+                            <a href="{% url 'places' page_obj.next_page_number %}">older <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    {% endif %}
+                </div>
+
+                
+                
+                
+{% endblock %}
