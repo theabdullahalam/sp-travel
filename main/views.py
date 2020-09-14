@@ -272,7 +272,7 @@ def places(request, pageno=1):
     categories = Category.objects.all()
 
     context = {
-        'header_image': '/media/page_headers/ladakh_Vc7jW0f.jpg',
+        'header_image': place_page.header_image.url,
         'description': place_page.description,
         'pretitle': place_page.pre_title,
         'bigtitle': place_page.title,
@@ -298,7 +298,7 @@ def privacy(request):
     categories = Category.objects.all()
 
     context = {
-        'header_image': '/media/page_headers/ladakh_Vc7jW0f.jpg',
+        'header_image': privacy_page.header_image.url,
         'description': privacy_page.description,
         'pretitle': privacy_page.pre_title,
         'bigtitle': privacy_page.title,
