@@ -26,9 +26,9 @@
 {% block pre-title %}SP-Travel{% endblock %}
 {% block big-title %}{{ post.title }}{% endblock %}
 {% block under-title %}
-                    <a href="{% url 'posts' 'place' post.place.slug %}">{{ post.place }}</a>
+                    <a href="{% url 'posts' 'place' post.place.slug %}" target="_blank">{{ post.place }}</a>
                     <span>{{ post.hfr_date }}</span>
-                    <a href="{% url 'posts' 'category' category.slug %}">{{ category.name }}</a>
+                    <a href="{% url 'posts' 'category' category.slug %}" target="_blank">{{ category.name }}</a>
                     <span class="post-info-item"><i class="fas fa-eye"></i> {{ post.views }}</span>
 {% endblock %}
 

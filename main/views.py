@@ -48,7 +48,7 @@ def index(request):
     categories = Category.objects.all()
     for category in categories:
         # GET TOP 4 POSTS UNDER CATEGORT
-        posts = Post.objects.filter(category__id = category.id).order_by('views', 'title').filter(published=True)[:3]
+        posts = Post.objects.filter(category__id = category.id).order_by('-views', 'title').filter(published=True)[:3]
 
         # SET DATE AND PREVIEW
         for post in posts:
@@ -62,7 +62,8 @@ def index(request):
         # CREATE SECTION DICT
         section = {
             'name': category.name,
-            'posts': posts
+            'posts': posts,
+            'category_slug': category.slug
         }
 
 
@@ -119,16 +120,6 @@ def post(request, slug):
     # INCREMENT POST VIEWS
     post_obj.views = int(post_obj.views) + 1
     post_obj.save()
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -265,6 +256,9 @@ def posts(request, section='all', slug='none', pageno=1):
 
 
 def places(request, pageno=1):
+
+    place_page = Page.objects.get(page_name='places')
+
     # ALL PLACES
     places = Place.objects.all()
 
@@ -279,7 +273,9 @@ def places(request, pageno=1):
 
     context = {
         'header_image': '/media/page_headers/ladakh_Vc7jW0f.jpg',
-        'description': "Blah Bluh Bleh",
+        'description': place_page.description,
+        'pretitle': place_page.pre_title,
+        'bigtitle': place_page.title,
         'places': places,
         'pageinator': paginator,
         'page_obj': page_obj,

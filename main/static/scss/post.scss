@@ -243,6 +243,11 @@ $top_margin_mobile: $side_margin_mobile;
             display: flex;
             align-items: center;
             margin-bottom: 4rem;
+            padding-right: $side_margin * 3;
+
+            @media screen and (max-width: 700px) {
+                padding-right: unset;
+            }
 
             .person-dp{
                 $size: 12rem;
@@ -252,7 +257,7 @@ $top_margin_mobile: $side_margin_mobile;
                 object-fit: cover;
                 height: $size;
                 width: $size;
-                @media screen and (max-width: 700px) {
+                @media screen and (max-width: 900px) {
                     height: $mobile_size;
                     width: $mobile_size;
                 }

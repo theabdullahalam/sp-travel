@@ -21,13 +21,13 @@
 <link rel="stylesheet" href="{% static 'css/places.css' %}">
 {% endblock %}
 
-{% block pre-title %}SP-Travel{% endblock %}
-{% block big-title %}Stories of Places{% endblock %}
+{% block pre-title %}{{ pretitle }}{% endblock %}
+{% block big-title %}{{ bigtitle }}{% endblock %}
 {% block under-title %}
                 {% for category in categories %}
                 <a href="{% url 'posts' 'category' category.slug %}">{{ category.name.upper }}</a>
                 {% endfor %}
-                <a href="#">PLACES</a>
+                <a href="{% url 'places' %}">PLACES</a>
 {% endblock %}
 
 

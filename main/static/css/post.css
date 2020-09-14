@@ -196,6 +196,12 @@
   display: flex;
   align-items: center;
   margin-bottom: 4rem;
+  padding-right: 30vw;
+}
+@media screen and (max-width: 700px) {
+  #content #about-authors .person {
+    padding-right: unset;
+  }
 }
 #content #about-authors .person .person-dp {
   border-radius: 50%;
@@ -206,7 +212,7 @@
   -moz-box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.24);
   box-shadow: 10px 10px 8px -7px rgba(0, 0, 0, 0.24);
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   #content #about-authors .person .person-dp {
     height: 8rem;
     width: 8rem;
