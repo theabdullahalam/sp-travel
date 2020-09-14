@@ -106,17 +106,22 @@
                     </form>
                     
                     <div id="comments">
-                        {% for comment in comments %}
-                            <div class="comment-block">
-                                <p class="comment-body">
-                                    {{ comment.content | safe}}
-                                </p>
-                                <div class="comment-info">
-                                    <span>@{{ comment.username | safe }}</span>
-                                    <span>{{ comment.hfr_date | safe }}</span>
+                        <script defer src="https://commento.sentient-pixels.com/js/commento.js"></script>
+                        <div id="commento"></div>
+
+                        {% comment %}
+                            {% for comment in comments %}
+                                <div class="comment-block">
+                                    <p class="comment-body">
+                                        {{ comment.content | safe}}
+                                    </p>
+                                    <div class="comment-info">
+                                        <span>@{{ comment.username | safe }}</span>
+                                        <span>{{ comment.hfr_date | safe }}</span>
+                                    </div>
                                 </div>
-                            </div>
-                        {% endfor %}
+                            {% endfor %}
+                        {% endcomment %}
                     </div>
                 </div>
 
