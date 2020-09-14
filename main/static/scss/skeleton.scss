@@ -31,10 +31,10 @@ body{
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: fixed;
-        @media screen and (max-width: 700px){
-            background-attachment: unset;
-        }
+        // background-attachment: fixed;
+        // @media screen and (max-width: 700px){
+        //     background-attachment: unset;
+        // }
         color: white;
 
         width: 100vw;

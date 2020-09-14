@@ -134,7 +134,6 @@ body #large-header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   color: white;
   width: 100vw;
   height: 100vh;
@@ -145,11 +144,6 @@ body #large-header {
   display: grid;
   grid-template-columns: 3fr 2fr;
   grid-template-rows: 5fr auto auto 6fr;
-}
-@media screen and (max-width: 700px) {
-  body #large-header {
-    background-attachment: unset;
-  }
 }
 @media screen and (max-width: 700px), screen and (max-height: 600px) {
   body #large-header {
