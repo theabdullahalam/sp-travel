@@ -96,20 +96,22 @@
                 <!-- COMMENTS -->
                 <div id="comment-section">
                     <h3 class="section-heading">Leave a comment</h3>
-                    
-                    <form method="POST" id="comment-form">
-                        {% csrf_token %} 
-                        <textarea form="comment-form" placeholder="Type Comment Here" name="comment_area"></textarea>
-                        <input type="text" placeholder="Name to Display" name="name_input" id="name-input"/>
-                        <input type="email" placeholder="Email Address (Will Not Be Shown)" name="email_input" id="email-input"/>
-                        <input type="submit" value="POST" id="submit-input"/>
-                    </form>
-                    
-                    <div id="comments">
-                        <script defer src="https://commento.sentient-pixels.com/js/commento.js"></script>
-                        <div id="commento"></div>
 
-                        {% comment %}
+                    <script defer src="https://commento.sentient-pixels.com/js/commento.js"></script>
+                    <div id="commento"></div>
+
+
+                    {% comment %}
+                        <form method="POST" id="comment-form">
+                            {% csrf_token %} 
+                            <textarea form="comment-form" placeholder="Type Comment Here" name="comment_area"></textarea>
+                            <input type="text" placeholder="Name to Display" name="name_input" id="name-input"/>
+                            <input type="email" placeholder="Email Address (Will Not Be Shown)" name="email_input" id="email-input"/>
+                            <input type="submit" value="POST" id="submit-input"/>
+                        </form>
+                    
+                        <div id="comments">
+                        
                             {% for comment in comments %}
                                 <div class="comment-block">
                                     <p class="comment-body">
@@ -121,8 +123,9 @@
                                     </div>
                                 </div>
                             {% endfor %}
-                        {% endcomment %}
-                    </div>
+                        
+                        </div>
+                    {% endcomment %}
                 </div>
 
 
