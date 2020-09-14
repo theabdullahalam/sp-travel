@@ -1,0 +1,26 @@
+#content {
+  padding-left: 10vw;
+  padding-top: 5rem;
+  padding-right: 40vw;
+  box-sizing: border-box;
+  background: #f9f9f9;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  margin-bottom: 4rem;
+}
+@media screen and (max-width: 700px), screen and (max-height: 600px) {
+  #content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 3rem;
+  }
+}
+#content .section-header {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+#content p {
+  margin-bottom: 1.5rem;
+}
+
+/*# sourceMappingURL=privacy.css.map */

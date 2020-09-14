@@ -1,0 +1,34 @@
+{% extends 'skeleton.html' %}
+
+{% load static %}
+
+{% block title %}Privacy - Sentient Pixels{% endblock %}
+{% block ogtitle %}Privacy - Sentient Pixels{% endblock %}
+{% block tctitle %}Privacy - Sentient Pixels{% endblock %}
+
+{% block metadescription %}
+    {{ description }}
+{% endblock %}
+{% block ogdescription %}
+    {{ description }}
+{% endblock %}
+{% block tcdescription %}
+    {{ description }}
+{% endblock %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/privacy.css' %}">
+{% endblock %}
+
+{% block pre-title %}{{ pretitle }}{% endblock %}
+{% block big-title %}{{ bigtitle }}{% endblock %}
+{% block under-title %}
+                <a href="{% url 'index' %}">HOME</a>
+                <a href="https://sentient-pixels.com">SENTIENT-PIXELS</a>
+{% endblock %}
+
+{% block body %}
+    <h3 class="section-header">SP-Travel Privacy</h3>
+    {{ content | safe }}
+{% endblock %}

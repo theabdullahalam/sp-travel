@@ -287,3 +287,27 @@ def places(request, pageno=1):
     return render(request, 'places.html', context=context)
 
 
+
+
+
+def privacy(request):
+
+    privacy_page = Page.objects.get(page_name='privacy')
+
+    # CATEGORY LIST FOR HEADER
+    categories = Category.objects.all()
+
+    context = {
+        'header_image': '/media/page_headers/ladakh_Vc7jW0f.jpg',
+        'description': privacy_page.description,
+        'pretitle': privacy_page.pre_title,
+        'bigtitle': privacy_page.title,
+        'content': privacy_page.content,
+        'categories': categories
+    }   
+    
+ 
+    # RETURN
+    return render(request, 'privacy.html', context=context)
+
+
