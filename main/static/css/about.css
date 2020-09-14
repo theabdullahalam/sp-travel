@@ -14,11 +14,13 @@
     padding-top: 1.5rem;
   }
 }
+#content .section-header {
+  font-size: 2rem;
+}
 #content #people-list {
   margin-top: 8rem;
 }
 #content #people-list .section-header {
-  font-size: 2rem;
   margin-bottom: 4rem;
 }
 #content #people-list .person {

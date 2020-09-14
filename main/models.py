@@ -44,6 +44,9 @@ class Author(models.Model):
     name = models.CharField(max_length=75)
     bio = models.TextField(max_length=700, default='A short description')
 
+    def __str__(self):
+        return str(self.name)
+
 # GUIDE, BLOG, PHOTOGRAPHY
 class Category(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1)
