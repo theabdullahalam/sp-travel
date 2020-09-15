@@ -26,7 +26,7 @@ def get_paragraph_preview(content):
     return preview
 
 def get_protocol():
-    if os.environ.get('DEBUG_VALUE').lower() == 'true':
+    if os.environ.get('DEBUG').lower() == 'true':
         return 'http'
     else:
         return 'https'
