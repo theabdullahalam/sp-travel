@@ -2,19 +2,25 @@
 
 {% load static %}
 
+<!-- TITLES -->
 {% block title %}Privacy - Sentient Pixels{% endblock %}
 {% block ogtitle %}Privacy - Sentient Pixels{% endblock %}
 {% block tctitle %}Privacy - Sentient Pixels{% endblock %}
 
-{% block metadescription %}
-    {{ description }}
-{% endblock %}
-{% block ogdescription %}
-    {{ description }}
-{% endblock %}
-{% block tcdescription %}
-    {{ description }}
-{% endblock %}
+<!-- DESCRIPTIONS -->
+{% block metadescription %}{{ description }}{% endblock %}
+{% block ogdescription %}{{ description }}{% endblock %}
+{% block tcdescription %}{{ description }}{% endblock %}
+
+<!-- OG/TC IMAGE -->
+{% block ogimage %}{{ social_image }}{% endblock %}
+{% block tcimage %}{{ social_image }}{% endblock %}
+
+<!-- ogtype -->
+{% block ogtype %}article{% endblock %}
+
+<!-- ogurl -->
+{% block ogurl %}{{ ogurl }}{% endblock %}
 
 
 {% block head %}

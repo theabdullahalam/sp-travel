@@ -6,19 +6,24 @@
 {% block ogtitle %}Sentient Pixels{% endblock %}
 {% block tctitle %}Sentient Pixels{% endblock %}
 
-{% block metadescription %}
-    {{ description }}
-{% endblock %}
-{% block ogdescription %}
-    {{ description }}
-{% endblock %}
-{% block tcdescription %}
-    {{ description }}
-{% endblock %}
+<!-- DESCRIPTIONS -->
+{% block metadescription %}{{ description }}{% endblock %}
+{% block ogdescription %}{{ description }}{% endblock %}
+{% block tcdescription %}{{ description }}{% endblock %}
+
+<!-- OG/TC IMAGE -->
+{% block ogimage %}{{ social_image }}{% endblock %}
+{% block tcimage %}{{ social_image }}{% endblock %}
+
+<!-- ogtype -->
+{% block ogtype %}website{% endblock %}
+
+<!-- ogurl -->
+{% block ogurl %}{{ ogurl }}{% endblock %}
 
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/index.css' %}">
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock %}
 
 {% block pre-title %}{{ pretitle }}{% endblock %}

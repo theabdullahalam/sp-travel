@@ -4,8 +4,9 @@ from .models import Post, Page, Author, Category, Place, Comment
 from django.templatetags.static import static
 from django.shortcuts import redirect
 from django.urls import reverse
+from django.contrib.sites.models import Site
 
-import random
+import os
 
 def get_paragraph_preview(content):
     preview = ''
@@ -23,6 +24,15 @@ def get_paragraph_preview(content):
         preview = content
 
     return preview
+
+def get_protocol():
+    if os.environ.get('DEBUG_VALUE').lower() == 'true':
+        return 'http'
+    else:
+        return 'https'
+
+def get_full_url(ending):
+    return '%s://%s%s' % (get_protocol(), Site.objects.get_current().domain, ending)
     
  
 def about(request):
@@ -31,6 +41,8 @@ def about(request):
     
     context = {
         'header_image': about_page.header_image.url,
+        'social_image': get_full_url(about_page.header_image.url),
+        'ogurl': get_full_url(reverse('about')),
         'pretitle': about_page.pre_title,
         'title': about_page.title,
         'description': about_page.description,
@@ -71,6 +83,8 @@ def index(request):
 
     context = {
         'header_image': index_page.header_image.url,
+        'social_image': get_full_url(index_page.header_image.url),
+        'ogurl': get_full_url(reverse('index')),
         'pretitle': index_page.pre_title,
         'title': index_page.title,
         'description': index_page.description,
@@ -111,8 +125,14 @@ def post(request, slug):
     hfr_date = post_obj.created.strftime('%e %b %Y')
     post_obj.hfr_date = hfr_date
 
-    # CATEGORIES OF THE POST
+    # CATEGORY OF THE POST
     category = Category.objects.get(id=post_obj.category.id)
+
+    # OGTYPE BASED ON CATEGORY
+    ogtype = 'article'
+    if category.name == 'Blog':
+        ogtype = 'blog'
+
 
     # AUTHORS OF THE POST
     authors = post_obj.authors.all()
@@ -186,6 +206,9 @@ def post(request, slug):
     # CREATE CONTEXT
     context = {
         'header_image': post_obj.header_image.url,
+        'social_image': get_full_url(post_obj.header_image.url),
+        'ogurl': get_full_url(reverse('post', args=[slug])),
+        'ogtype': ogtype,
         'category': category,
         'authors': authors,
         'post': post_obj,
@@ -241,6 +264,8 @@ def posts(request, section='all', slug='none', pageno=1):
     # SET CONTEXT
     context = {
         'header_image': header_image,
+        'social_image': get_full_url(header_image),
+        'ogurl': get_full_url(reverse('posts', args=[section, slug, pageno])),
         'description': index_page.description,
         'section': section_name,
         'posts': posts,
@@ -273,6 +298,8 @@ def places(request, pageno=1):
 
     context = {
         'header_image': place_page.header_image.url,
+        'social_image': get_full_url(place_page.header_image.url),
+        'ogurl': get_full_url(reverse('places', args=[pageno])),
         'description': place_page.description,
         'pretitle': place_page.pre_title,
         'bigtitle': place_page.title,
@@ -299,6 +326,8 @@ def privacy(request):
 
     context = {
         'header_image': privacy_page.header_image.url,
+        'social_image': get_full_url(privacy_page.header_image.url),
+        'ogurl': get_full_url(reverse('privacy')),
         'description': privacy_page.description,
         'pretitle': privacy_page.pre_title,
         'bigtitle': privacy_page.title,

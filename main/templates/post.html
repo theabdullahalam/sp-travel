@@ -6,15 +6,20 @@
 {% block ogtitle %}{{ post.title}} - Sentient Pixels{% endblock %}
 {% block tctitle %}{{ post.title}} - Sentient Pixels{% endblock %}
 
-{% block metadescription %}
-    {{ post.preview }}
-{% endblock %}
-{% block ogdescription %}
-    {{ post.preview }}
-{% endblock %}
-{% block tcdescription %}
-    {{ post.preview }}
-{% endblock %}
+<!-- DESCRIPTIONS -->
+{% block metadescription %}{{ description }}{% endblock %}
+{% block ogdescription %}{{ description }}{% endblock %}
+{% block tcdescription %}{{ description }}{% endblock %}
+
+<!-- OG/TC IMAGE -->
+{% block ogimage %}{{ social_image }}{% endblock %}
+{% block tcimage %}{{ social_image }}{% endblock %}
+
+<!-- ogtype -->
+{% block ogtype %}{{ ogtype }}{% endblock %}
+
+<!-- ogurl -->
+{% block ogurl %}{{ ogurl }}{% endblock %}
 
 
 {% block head %}
