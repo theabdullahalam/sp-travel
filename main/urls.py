@@ -1,5 +1,17 @@
 from django.urls import path
 from . import views
+
+from .feeds import LatestPostsFeed
+
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import PostSiteMap, CategorySiteMap, PlaceSiteMap
+sitemaps = {
+    'categories': CategorySiteMap,
+    'places': PlaceSiteMap,
+    'posts': PostSiteMap
+}
+
+
  
 urlpatterns = [
  
@@ -25,5 +37,8 @@ urlpatterns = [
 
     path('privacy', views.privacy, name='privacy'),
     path('privacy/', views.privacy, name='privacy'),
+
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('feed', LatestPostsFeed(), name='all_posts_feed')
  
 ]

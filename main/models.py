@@ -20,6 +20,10 @@ class Place(models.Model):
  
     def __str__(self):
         return str(self.name)
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('posts', args=['place', str(self.slug)])
  
     class Meta:
         verbose_name = 'Place'
@@ -62,6 +66,10 @@ class Category(models.Model):
  
     def __str__(self):
         return str(self.name)
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('posts', args=['category', str(self.slug)])
  
     class Meta:
         verbose_name = 'Category'
@@ -95,6 +103,10 @@ class Post(models.Model):
  
     def __str__(self):
         return str(self.title)
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('post', args=[str(self.slug)])
  
     class Meta:
         verbose_name = 'Post'
