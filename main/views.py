@@ -125,6 +125,9 @@ def post(request, slug):
     hfr_date = post_obj.created.strftime('%e %b %Y')
     post_obj.hfr_date = hfr_date
 
+    # POST PREVIEW FOR SCHEMA
+    post_obj.preview = get_paragraph_preview(post_obj.content)
+
     # CATEGORY OF THE POST
     category = Category.objects.get(id=post_obj.category.id)
 
@@ -209,6 +212,7 @@ def post(request, slug):
         'social_image': get_full_url(post_obj.header_image.url),
         'ogurl': get_full_url(reverse('post', args=[slug])),
         'ogtype': ogtype,
+        'full_logo_url': get_full_url(static('img/logo.png')),
         'category': category,
         'authors': authors,
         'post': post_obj,

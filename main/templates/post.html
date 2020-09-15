@@ -23,7 +23,37 @@
 
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/post.css' %}">
+        <link rel="stylesheet" href="{% static 'css/post.css' %}">
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{{ ogurl }}"
+              },
+              "headline": "{{ post.title }}",
+              "image": [
+                "{{ social_image }}"
+               ],
+              "datePublished": "{{ post.hfr_date }}",
+              {% for author in authors %}
+              "author": {
+                "@type": "Person",
+                "name": "{{ author.name }}"
+              },
+              {% endfor %}
+               "publisher": {
+                "@type": "Organization",
+                "name": "Sentient-Pixels",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "{{ full_logo_url }}"
+                }
+              },
+              "description": "{{ post.preview }}"
+            }
+        </script>
 {% endblock %}
 
 
