@@ -13,7 +13,7 @@ def get_paragraph_preview(content):
 
     try:
         first_para = str(content).split('</p>')[0].split('<p>')[1]
-        first_twenty = first_para.split(' ')[:20]
+        first_twenty = first_para.split(' ')[:35]
         # remove comma from last
         if first_twenty[-1][-1] == ',':
             first_twenty[-1] = first_twenty[-1][:-1]
