@@ -58,6 +58,10 @@ $top_margin_mobile: 1.5rem;
         margin-top: 2rem;
         font-size: 1.1rem;
         line-height: 1.5rem;
+
+        .caption{
+            line-height: 1.2rem;
+        }
         
         p{
             padding-right: $side_margin * 3;

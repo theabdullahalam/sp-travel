@@ -39,6 +39,9 @@
   font-size: 1.1rem;
   line-height: 1.5rem;
 }
+#content #post-body .caption {
+  line-height: 1.2rem;
+}
 #content #post-body p {
   padding-right: 30vw;
   margin-top: 1.5rem;
