@@ -60,7 +60,7 @@ def index(request):
     categories = Category.objects.all()
     for category in categories:
         # GET TOP 4 POSTS UNDER CATEGORT
-        posts = Post.objects.filter(category__id = category.id).order_by('-views', 'title').filter(published=True)[:3]
+        posts = Post.objects.filter(category__id = category.id).order_by('-created', 'title').filter(published=True)[:3]
 
         # SET DATE AND PREVIEW
         for post in posts:

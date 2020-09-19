@@ -133,7 +133,7 @@ $top_margin_mobile: $side_margin_mobile;
                 padding-bottom: $vertical_padding;
                 font-weight: bold;
                 font-size: 1.2rem;
-                margin-top: auto;
+                margin-top: auto + 1rem;
                 @media screen and (max-width: 900px) {
                     margin-top: 2rem;
                 }

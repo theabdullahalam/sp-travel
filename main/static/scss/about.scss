@@ -18,7 +18,7 @@ $top_margin_mobile: $side_margin_mobile;
     @media screen and (max-width: 700px), screen and (max-height: 600px) {
         padding-left: $side_margin_mobile;
         padding-right: $side_margin_mobile;
-        padding-top: $top_margin_mobile;
+        padding-top: $top_margin_mobile + 2rem;
     }
 
     .section-header{
