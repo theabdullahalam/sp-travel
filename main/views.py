@@ -1,12 +1,13 @@
-from django.shortcuts import render
-from django.core.paginator import Paginator
-from .models import Post, Page, Author, Category, Place, Comment
-from django.templatetags.static import static
-from django.shortcuts import redirect
-from django.urls import reverse
-from django.contrib.sites.models import Site
-
 import os
+
+from django.contrib.sites.models import Site
+from django.core.paginator import Paginator
+from django.shortcuts import redirect, render
+from django.templatetags.static import static
+from django.urls import reverse
+
+from .models import Author, Category, Comment, Page, Place, Post
+
 
 def get_paragraph_preview(content):
     preview = ''

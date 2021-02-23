@@ -1,10 +1,10 @@
-from django.urls import path
-from . import views
-
-from .feeds import LatestPostsFeed
-
 from django.contrib.sitemaps.views import sitemap
-from .sitemaps import PostSiteMap, CategorySiteMap, PlaceSiteMap
+from django.urls import path
+
+from . import views
+from .feeds import LatestPostsFeed
+from .sitemaps import CategorySiteMap, PlaceSiteMap, PostSiteMap
+
 sitemaps = {
     'categories': CategorySiteMap,
     'places': PlaceSiteMap,
