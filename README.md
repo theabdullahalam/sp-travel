@@ -4,13 +4,12 @@ Welcome to the repo of my travel and photography blog. It is the repo. Of the bl
 
 Link: [https://sentient-pixels.com](sentient-pixels.com)
 
----
-
 ## Stack
-| Front    | Vanilla HTML5/JS + CSS(SASS) |
+| What    | How |
 | ------ | ------- |
-| Back     | Django                       |
-| Database | PostgreSQL                   |
+| Front    | Vanilla HTML5/JS + fluid responsive CSS(SASS) |
+| Back     | Django |
+| Database | PostgreSQL |
 
 
 
