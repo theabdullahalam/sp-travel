@@ -7,9 +7,12 @@ Link: [https://sentient-pixels.com](sentient-pixels.com)
 ---
 
 ## Stack
-|Front|Vanilla HTML5/JS + CSS(SASS)|
-|Back|Django|
-|Database|PostgreSQL|
+| Front    | Vanilla HTML5/JS + CSS(SASS) |
+| ------ | ------- |
+| Back     | Django                       |
+| Database | PostgreSQL                   |
+
+
 
 ### Can I borrow this code for my blog?
 
