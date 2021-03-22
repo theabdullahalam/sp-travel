@@ -27,7 +27,7 @@
 {% endblock %}
 
 {% block pre-title %}SP-Travel{% endblock %}
-{% block big-title %}{{ section }} Posts{% endblock %}
+{% block big-title %}{{ section }}{% endblock %}
 {% block under-title %}
                 {% for category in categories %}
                 <a href="{% url 'posts' 'category' category.slug %}">{{ category.name.upper }}</a>
