@@ -15,4 +15,4 @@ Link: [https://sentient-pixels.com](sentient-pixels.com)
 
 ### Can I borrow this code for my blog?
 
-Sure. It's a super simple blog system at the backend with RSS feed, Django's sitemap, and posts categorised by category as well as location. It just looks decent. But still, credits would be nice :)
+**Sure.** It's a super simple blog system at the backend with RSS feed, Django's sitemap, and posts categorised by category as well as location. It just looks decent. But still, credits would be nice :)
