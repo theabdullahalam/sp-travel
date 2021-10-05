@@ -13,6 +13,12 @@ $side_margin_mobile: 2rem;
 $top_margin_mobile: $side_margin_mobile;
 
 
+body,html {
+    position: relative;
+    overflow-x: hidden;
+}
+
+
 
 body{
     background: $background_color;
