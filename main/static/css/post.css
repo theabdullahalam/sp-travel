@@ -38,19 +38,19 @@
   margin-top: 2rem;
   font-size: 1.1rem;
   line-height: 1.5rem;
+  padding-right: 30vw;
+}
+@media screen and (max-width: 700px) {
+  #content #post-body {
+    padding-right: unset;
+  }
 }
 #content #post-body .caption {
   line-height: 1.2rem;
 }
 #content #post-body p {
-  padding-right: 30vw;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
-}
-@media screen and (max-width: 700px) {
-  #content #post-body p {
-    padding-right: unset;
-  }
 }
 #content #post-body p a {
   text-decoration: none;

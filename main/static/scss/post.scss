@@ -58,19 +58,22 @@ $top_margin_mobile: 1.5rem;
         margin-top: 2rem;
         font-size: 1.1rem;
         line-height: 1.5rem;
+        padding-right: $side_margin * 3;
+
+        @media screen and (max-width: 700px) {
+            padding-right: unset;
+        }
 
         .caption{
             line-height: 1.2rem;
         }
         
         p{
-            padding-right: $side_margin * 3;
+            // padding-right: $side_margin * 3;
             margin-top: 1.5rem;
             margin-bottom: 1rem;
 
-            @media screen and (max-width: 700px) {
-                padding-right: unset;
-            }
+            
 
             a{
                 text-decoration: none;
