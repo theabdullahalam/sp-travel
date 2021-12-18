@@ -37,21 +37,4 @@
     <h3 class="section-header">About SP-Travel</h3>
     {{ content | safe }}
 
-    <div id="people-list">
-
-        <h3 class="section-header">Authors</h3>
-        {% for author in authors %}
-            <div class="person">
-                <img class="person-dp lozad" data-src="{{ author.display_picture.url }}" />
-                <div class="person-info-block">
-                    <h4 class="person-name">{{ author.name }}</h4>
-                    <p>
-                        {{ author.bio | safe }}
-                    </p>
-                </div>
-            </div>
-        {% endfor %}
-
-
-    </div>
 {% endblock %}
