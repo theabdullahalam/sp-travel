@@ -268,6 +268,9 @@ def posts(request, section='all', slug='none', pageno=1):
 
     # CATEGORY LIST FOR HEADER
     categories = Category.objects.all()
+
+    # debug
+    print('SECTION_NAME: ', section_name)
  
     # SET CONTEXT
     context = {
@@ -279,7 +282,8 @@ def posts(request, section='all', slug='none', pageno=1):
         'posts': posts,
         'pageinator': paginator,
         'page_obj': page_obj,
-        'categories': categories
+        'categories': categories,
+        'category': section_name.lower()
     }   
     
  
