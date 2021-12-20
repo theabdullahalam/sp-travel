@@ -22,6 +22,8 @@ urlpatterns = [
 
     path('posts/<str:section>/', views.posts, name='posts'),
     path('posts/<str:section>', views.posts, name='posts'),
+    path('posts/<str:section>/<int:pageno>', views.posts, name='posts'),
+    path('posts/<str:section>/<int:pageno>/', views.posts, name='posts'),
     path('posts/<str:section>/<slug:slug>', views.posts, name='posts'),
     path('posts/<str:section>/<slug:slug>/', views.posts, name='posts'),
     path('posts/<str:section>/<slug:slug>/page/<int:pageno>', views.posts, name='posts'),

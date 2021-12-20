@@ -271,6 +271,8 @@ def posts(request, section='all', slug='none', pageno=1):
 
     # debug
     print('SECTION_NAME: ', section_name)
+    print('SLUG: ', slug)
+    print('PAGE: ', pageno)
  
     # SET CONTEXT
     context = {
