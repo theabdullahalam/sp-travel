@@ -7,9 +7,11 @@ $side_margin_mobile: 1.5rem;
 $top_margin_mobile: $side_margin_mobile;
 
 #content{
+
     padding-left: $side_margin;
     padding-top: $top_margin;
     padding-right: $side_margin * 3;
+    padding-bottom: 4rem;
     box-sizing: border-box;
     background: $background_color;
     font-size: 1.1rem;
